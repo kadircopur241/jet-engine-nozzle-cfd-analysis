@@ -19,6 +19,6 @@ Analiz dosyalarına, görsellere ve detaylı sonuç raporlarına aşağıdaki kl
 
 ---
 
-## **Hazırlayan:** Abdülkadir Çopuroğlu
-## **İletişim:** [kadircopuroglu241@gmail.com](mailto:kadircopuroglu241@gmail.com)
-## **Okul:** İstanbul Teknik Üniversitesi - Makina Mühendisliği
+**Hazırlayan:** Abdülkadir Çopuroğlu
+**İletişim:** [kadircopuroglu241@gmail.com](mailto:kadircopuroglu241@gmail.com)
+**Okul:** İstanbul Teknik Üniversitesi - Makina Mühendisliği
