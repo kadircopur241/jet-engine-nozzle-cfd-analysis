@@ -17,6 +17,10 @@ Analiz dosyalarına, görsellere ve detaylı sonuç raporlarına aşağıdaki kl
 * **images/:** Mach sayısı ve basınç dağılımı kontur grafikleri.
 * **report/:** Analiz sonuçlarının teorik verilerle karşılaştırıldığı detaylı rapor.
 
+## Özet
+
+Bu çalışmada, bir jet motoru yarışması kapsamında tasarlanan yakınsak–ıraksak (CD) nozulun iç akış karakteristikleri sayısal akışkanlar dinamiği (CFD) yöntemiyle incelenmiştir. Analizler ANSYS Fluent kullanılarak gerçekleştirilmiş, sıkıştırılabilir akış varsayımı altında Mach sayısı, basınç dağılımları ve kütlesel debi değerleri elde edilmiştir. Sayısal sonuçlar, teorik akış hesaplamaları ile karşılaştırılarak nozul tasarımı doğrulanmıştır.
+
 ---
 
 **Hazırlayan:** Abdülkadir Çopuroğlu
