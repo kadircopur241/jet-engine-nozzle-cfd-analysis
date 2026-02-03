@@ -34,9 +34,12 @@ Süreklilik denkleminin sağlanması ve kütle korunumunun kontrolü amacıyla g
 * **CFD Çıkış Debisi:** $-38.012 \, kg/s$ (Net akış)
 
 **Hata Analizi:**
+
 Teorik hedef ile CFD sonucu arasındaki fark:
 
-$$\text{Hata} = \left| \frac{38.012 - 37.714}{37.714} \right| \times 100 = \%0.79$$
+$$
+\text{Hata} = \left| \frac{38.012 - 37.714}{37.714} \right| \times 100 = \%0.79
+$$
 
 *%1'in altındaki bu sapma, çözüm ağının ve sınır koşullarının yüksek doğruluğunu göstermektedir.*
 
@@ -44,7 +47,10 @@ $$\text{Hata} = \left| \frac{38.012 - 37.714}{37.714} \right| \times 100 = \%0.7
 Sıkıştırılabilir akışlarda boğaz bölgesindeki efektif alanı belirlemek zor olduğu için, $C_d$ hesabı kütlesel debiler üzerinden yapılmıştır.
 
 **Kullanılan Formül:**
-$$C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}$$
+
+$$
+C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}
+$$
 
 Termodinamik denklemlerle hesaplanan **İdeal (Isentropic) Kütlesel Debi ($\dot{m}_{ideal}$)** değeri **$40.07 \, kg/s$** olarak bulunmuştur.
 
@@ -63,11 +69,20 @@ Analiz sonucunda lüle çıkış düzleminden (Station 9) alınan ortalama veril
 * **Çıkış Alanı ($A_9$):** $0.0786 \, m^2$ (Alan oranından hesaplanmıştır)
 
 **İtki Hesabı Formülü:**
-$$F_g = (\dot{m} \times V_9) + A_9 \times (P_9 - P_0)$$
+
+$$
+F_g = (\dot{m} \times V_9) + A_9 \times (P_9 - P_0)
+$$
 
 **Hesaplama:**
-$$F_{g,CFD} = (38.012 \times 686.264) + 0.0786 \times (119938.5 - 101325)$$
-$$F_{g,CFD} \approx 26,086 + 1,463 = 27,549 \, N \approx \mathbf{27.55 \, kN}$$
+
+$$
+F_{g,CFD} = (38.012 \times 686.264) + 0.0786 \times (119938.5 - 101325)
+$$
+
+$$
+F_{g,CFD} \approx 26,086 + 1,463 = 27,549 \, N \approx \mathbf{27.55 \, kN}
+$$
 
 **Doğrulama:**
 * **Şartname (Teorik) İtki:** $26.98 \, kN$
@@ -81,11 +96,19 @@ Nozzle performansının en önemli göstergesi olan itki katsayısı, CFD itkisi
 
 İdeal çıkış hızı ($V_{ideal}$), izentropik genişleme varsayımıyla **$710.193 \, m/s$** olarak hesaplanmıştır.
 
-$$F_{g,ideal} = \dot{m}_{ideal} \times V_{ideal}$$
-$$F_{g,ideal} = 40.07 \times 710.193 \approx \mathbf{28.46 \, kN}$$
+$$
+F_{g,ideal} = \dot{m}_{ideal} \times V_{ideal}
+$$
+
+$$
+F_{g,ideal} = 40.07 \times 710.193 \approx \mathbf{28.46 \, kN}
+$$
 
 **İtki Katsayısı Hesabı:**
-$$C_{fg} = \frac{F_{g,bulunan}}{F_{g,ideal}} = \frac{27.55}{28.46} = 0.968$$
+
+$$
+C_{fg} = \frac{F_{g,bulunan}}{F_{g,ideal}} = \frac{27.55}{28.46} = 0.968
+$$
 
 * **Teorik $C_{fg}$:** $0.970$
 * **Hesaplanan $C_{fg}$:** $0.968$
