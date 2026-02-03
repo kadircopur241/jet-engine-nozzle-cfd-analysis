@@ -26,10 +26,16 @@ Bu çalışmada, bir jet motoru yarışması kapsamında tasarlanan yakınsak–
 
 Aşağıdaki tablo, tasarımın temel akış karakteristiklerini ve sayısal analiz sonuçlarını içermektedir:
 
-| Analiz Tipi | Görsel Sonuç |
-| :--- | :--- |
-| **Basınç Dağılımı (Static Pressure)** | ![Case-1 Basınç Dağılımı](./images/case-1/case-1-pressure.png) |
-| **Mach Sayısı Dağılımı** | *(Görsel yüklendiğinde buraya eklenecek)* |
+## Analiz Sonuçları (7 Farklı Durum)
+
+Farklı basınç ve geometrik parametreler altında yapılan analizlerin görsel sonuçlarına aşağıdaki linklerden ulaşabilirsiniz:
+
+| Analiz Durumu | Basınç Dağılımı | Mach Sayısı | Mesh Yapısı |
+| :--- | :--- | :--- | :--- |
+| **Durum 1 (Case-1)** | [Görüntüle](./images/case-1/case-1-pressure.png) | [Görüntüle](./images/case-1/case-1-mach.png) | [Görüntüle](./images/case-1/case-1-mesh.png) |
+| **Durum 2 (Case-2)** | [Görüntüle](./images/case-2/case-2-pressure.png) | [Görüntüle](./images/case-2/case-2-mach.png) | [Görüntüle](./images/case-2/case-2-mesh.png) |
+| **Durum 3 (Case-3)** | [Görüntüle](./images/case-3/case-3-pressure.png) | [Görüntüle](./images/case-3/case-3-mach.png) | [Görüntüle](./images/case-3/case-3-mesh.png) |
+| ... | ... | ... | ... |
 
 ---
 
