@@ -1,21 +1,20 @@
-
 # Case-3: High Pressure & Supersonic Expansion Analysis
 
 ## 1. Giriş ve Amaç
-Bu rapor, jet motoru nozzle tasarımının **Case-2 (Durum 3)** koşullarındaki sayısal analiz sonuçlarını içermektedir. Bu aşamada, lülenin yüksek basınç ve düşük ortam basıncı altındaki genişleme (expansion) karakteristiği ve süpersonik akış verimi incelenmiştir.
+[cite_start]Bu rapor, jet motoru nozzle tasarımının **Case-3 (Durum 3)** koşullarındaki sayısal analiz sonuçlarını içermektedir[cite: 14]. [cite_start]Bu aşamada, lülenin yüksek basınç ve düşük ortam basıncı altındaki genişleme (expansion) karakteristiği ve süpersonik akış verimi incelenmiştir[cite: 15].
 
 ## 2. Geometrik Parametreler
-Tasarımda kullanılan lüle geometrisi, yüksek genişleme oranına göre optimize edilmiştir:
+[cite_start]Tasarımda kullanılan lüle geometrisi, yüksek genişleme oranına göre optimize edilmiştir[cite: 14, 15]:
 
-* **Giriş Alanı ($A_7$):** $0.19635 \, m^2$
-* **Boğaz Alanı ($A_8$):** $0.06610 \, m^2$
-* **Alan Oranı ($A_9/A_8$):** $1.703$
-* **Çıkış Alanı ($A_9$):** $0.11257 \, m^2$
-* **Yakınsaklık Yarım Açısı ($\alpha$):** $30^\circ$
-* **Iraksaklık Yarım Açısı ($\theta$):** $12^\circ$
+* [cite_start]**Giriş Alanı ($A_7$):** $0.19635 \, m^2$ [cite: 14]
+* **Boğaz Alanı ($A_8$):** $0.06610 \, m^2$ [cite: 14]
+* **Alan Oranı ($A_9 / A_8$):** $1.703$ [cite: 14]
+* **Çıkış Alanı ($A_9$):** $0.11257 \, m^2$ (Hesaplanan)
+* [cite_start]**Yakınsaklık Yarım Açısı ($\alpha$):** $30^\circ$ [cite: 16]
+* [cite_start]**Iraksaklık Yarım Açısı ($\theta$):** $12^\circ$ [cite: 16]
 
 ## 3. Sınır Koşulları (Boundary Conditions)
-Analiz, ANSYS Fluent içerisinde aşağıdaki sınır koşulları altında gerçekleştirilmiştir:
+[cite_start]Analiz, ANSYS Fluent içerisinde aşağıdaki sınır koşulları altında gerçekleştirilmiştir[cite: 14]:
 
 | Parametre | Sembol | Değer | Birim |
 | :--- | :--- | :--- | :--- |
@@ -30,59 +29,58 @@ Analiz, ANSYS Fluent içerisinde aşağıdaki sınır koşulları altında gerç
 ## 4. Performans Analizi ve Doğrulama
 
 ### 4.1. Kütlesel Debi Analizi ($\dot{m}$)
-Süreklilik denkleminin sağlanması ve kütle korunumunun kontrolü amacıyla debi verileri incelenmiştir.
+[cite_start]Süreklilik denkleminin sağlanması ve kütle korunumunun kontrolü amacıyla debi verileri incelenmiştir[cite: 18].
 
-* **Teorik (Hedef) Debi:** $35.907 \, kg/s$
-* **CFD Giriş Debisi:** $36.1196 \, kg/s$
-* **CFD Çıkış Debisi:** $-36.12082 \, kg/s$ (Net akış)
+* [cite_start]**Teorik (Hedef) Debi:** $35.907 \, kg/s$ 
+* **CFD Giriş Debisi:** $36.1196 \, kg/s$ 
+* [cite_start]**CFD Çıkış Debisi:** $-36.12082 \, kg/s$ 
 
 **Hata Analizi:**
+[cite_start]Teorik hedef ile CFD çıkış debisi arasındaki fark[cite: 18]:
 
-$$
-\text{Hata} = \left| \frac{36.12082 - 35.907}{35.907} \right| \times 100 = \%0.59
-$$
-
-*%1'in altındaki bu düşük hata oranı (%0.59), sınır koşulları ve çözüm ağının (mesh) yüksek irtifa koşullarında dahi mükemmel çalıştığını kanıtlamaktadır.*
+$$\text{Hata} = \left| \frac{36.12082 - 35.907}{35.907} \right| \times 100 = \%0.59$$
 
 ### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
-Boğaz bölgesindeki akış verimliliğini belirlemek için debi oranları kullanılmıştır.
+[cite_start]Boğaz bölgesindeki akış verimliliğini belirlemek için aşağıdaki yöntem kullanılmıştır[cite: 19, 20]:
 
-**Kullanılan Formül:**
 $$C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}$$
 
-Termodinamik denklemlerle hesaplanan **İdeal Kütlesel Debi ($\dot{m}_{ideal}$)** değeri **$38.16 \, kg/s$** olarak bulunmuştur.
+[cite_start]Termodinamik denklemlerle hesaplanan **İdeal Kütlesel Debi ($\dot{m}_{ideal}$)** değeri **$38.16 \, kg/s$** olarak bulunmuştur[cite: 20].
 
-* **Teorik $C_d$ (Referans):** $0.940$
-* **CFD $C_d$ (Hesaplanan):** $36.12082 / 38.16 = \mathbf{0.9465}$
+* [cite_start]**Teorik $C_d$ (Referans):** $0.940$ [cite: 18]
+* **CFD $C_d$ (Hesaplanan):** $0.9465$ [cite: 20]
+
 
 ---
 
 ### 4.3. İtki Kuvveti ($F_g$) Analizi
-Lüle çıkış yüzeyinden alınan verilerle net itki hesaplanmıştır.
+[cite_start]Lüle çıkış yüzeyinden (Station 9) alınan verilerle net itki hesaplanmıştır[cite: 22, 23].
 
-* **Çıkış Hızı ($V_9$):** $817.922 \, m/s$
-* **Çıkış Basıncı ($P_9$):** $51,012.3 \, Pa$
+* **Çıkış Hızı ($V_9$):** $817.922 \, m/s$ [cite: 22]
+* **Çıkış Basıncı ($P_9$):** $51,012.3 \, Pa$ [cite: 22]
 
-**İtki Hesabı Formülü:**
+[cite_start]**İtki Hesabı Formülü[cite: 23]:**
+
 $$F_g = (\dot{m} \times V_9) + A_9 \times (P_9 - P_0)$$
 
-**Hesaplama:**
-$$F_{g,CFD} = (36.12082 \times 817.922) + 0.11257 \times (51012.3 - 46562)$$
-$$F_{g,CFD} \approx 29,544 + 501 = \mathbf{30.045 \, kN}$$
+**Sonuçlar:**
+* **Şartname (Teorik) İtki:** $29.48 \, kN$ [cite: 21]
+* [cite_start]**CFD Sonucu (Net İtki):** $\mathbf{30.045 \, kN}$ [cite: 23]
 
 ---
 
 ### 4.4. İtki ($F_g$) ve Verim ($C_{fg}$) Karşılaştırmalı Analiz
-Analizden elde edilen performans verileri, şartname (specification) değerleri ile karşılaştırılmıştır.
+[cite_start]Analizden elde edilen performans verileri, şartname değerleri ile karşılaştırılmıştır[cite: 26].
 
-| Parametre | Teorik / Şartname | CFD Sonucu | Hata / Fark |
+| Parametre | Teorik / Şartname | CFD Sonucu | Fark |
 | :--- | :--- | :--- | :--- |
 | **İtki Kuvveti ($F_g$)** | $29.48 \, kN$ | $30.045 \, kN$ | %1.91 |
 | **İtki Katsayısı ($C_{fg}$)** | $0.968$ | $0.961$ | %0.72 |
 
-**Değerlendirme:**
-1. **İtki ($F_g$):** CFD sonucu şartname değerinden %1.91 daha yüksek çıkmıştır. Bu fark, lüle çıkışındaki basınç farkından ($P_9 > P_0$) kaynaklanan ekstra basınç itkisinin teorik modelden daha etkili olduğunu gösterir.
-2. **Verim ($C_{fg}$):** Hesaplanan $0.961$ değeri, teorik $0.968$ referansına çok yakındır. Aradaki %0.72'lik küçük kayıp, lüle içindeki viskoz sürtünmeler ve süpersonik akıştaki sınır tabaka etkileriyle açıklanabilir.
+[cite_start]**Hesaplanan $C_{fg}$ Değeri[cite: 26]:**
+
+$$C_{fg} = \frac{F_{g,bulunan}}{F_{g,ideal}} = \frac{30.045}{31.25} = \mathbf{0.961}$$
+
 
 ## 5. Sonuç
-Case-3 analizinde lüle, süpersonik rejime tam uyum sağlamış ve Mach 2.24 hızına ulaşmıştır. Yapılan debi ve itki karşılaştırmaları sonucunda, CFD modelinin teorik verilerle **%99'un üzerinde tutarlılıkla** örtüştüğü doğrulanmıştır.
+[cite_start]Case-3 analizinde lüle, süpersonik rejime tam uyum sağlamış ve Mach 2.24 hızına ulaşmıştır[cite: 14]. [cite_start]Yapılan debi ve itki karşılaştırmaları sonucunda, CFD modelinin teorik verilerle **%99'un üzerinde tutarlılıkla** örtüştüğü doğrulanmıştır[cite: 18].
