@@ -95,10 +95,22 @@ $$C_{fg} = \frac{F_{g,bulunan}}{F_{g,ideal}} = \frac{39.9615}{42.24} = \mathbf{0
 **Sonuç:**
 Hesaplanan itki katsayısı, teorik beklentiye oldukça yakındır. Aradaki küçük fark, lüle içerisindeki şok dalgaları ve viskoz kayıplardan kaynaklanmaktadır.
 
-## 5. Sonuç
-Case-2 koşullarında yapılan analizlerde:
-1. Kütlesel debi hatası **%0.60** (Önceki: %1.55),
-2. İtki kuvveti hatası **%0.1** (Mükemmel Doğrulama),
-3. $C_d$ ve $C_{fg}$ katsayıları teorik limitler dahilinde elde edilmiştir.
+---
 
-Bu sonuçlar, tasarımın yüksek basınç oranlarında da kararlı çalıştığını kanıtlamaktadır.
+## 5. Sonuç ve Genel Değerlendirme
+
+Case-2 (Yüksek Basınç Altında Performans) analizleri sonucunda elde edilen veriler şu şekildedir:
+
+1. **Akış Rejimi:** Giriş basıncının 580 kPa değerine yükseltilmesiyle birlikte nozzle, yüksek basınç oranlarında (NPR) kararlı yapısını korumuş ve verimli bir deşarj sergilemiştir.
+
+2. **Kütlesel Debi ve $C_p$ Etkisi:** * Sıcaklığa bağlı $C_p$ düzeltmesi sonrası kütlesel debi hatası **%0.60** seviyesine indirilmiştir. 
+   * **CFD Çıkış Debisi:** $52.368 \, kg/s$ olarak kaydedilmiştir.
+
+3. **İtki Kuvveti ve Hassasiyet:** * **Şartname İtki:** $40.00 \, kN$
+   * **CFD Net İtki:** $39.9615 \, kN$
+   * **Hata:** %0.096 (Mükemmel uyum).
+   * Fluent üzerinden alınan Force Report verileri, tasarımın hedeflenen 40 kN itkiyi %99.9 hassasiyetle üretebildiğini ispatlamıştır.
+
+4. **Verimlilik Analizi ($C_{fg}$):** * Hesaplanan **0.946** $C_{fg}$ değeri, yüksek basınçlı akışlarda lüle içindeki viskoz kayıpların kontrol altında tutulduğunu göstermektedir.
+
+5. **Genel Kanı:** Case-2 sonuçları, tasarımın zorlayıcı basınç koşullarında bile nominal performansından ödün vermediğini ve yüksek itki gereksinimlerini başarıyla karşıladığını doğrular.
