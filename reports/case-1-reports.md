@@ -7,7 +7,7 @@ Bu rapor, tasarlanan Yakınsak-Iraksak (CD) lülenin **Design Point (DP)** koşu
 Lüle tasarımında akış ayrılmalarını önlemek ve optimum genişlemeyi sağlamak amacıyla aşağıdaki geometrik kabuller yapılmıştır:
 
 * **Giriş Alanı ($A_7$):** $0.19632 \, m^2$
-* **Boğaz Alanı ($A_8$):** $0.06675 \, m^2$
+* **Boğaz Alanı ($A_8$):** $0.06745 \, m^2$
 * **Alan Oranı ($A_9/A_8$):** $1.178$
 * **Yakınsaklık Yarım Açısı ($\alpha$):** $30^\circ$
 * **Iraksaklık Yarım Açısı ($\theta$):** $12^\circ$
