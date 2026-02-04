@@ -32,7 +32,7 @@ Analiz, ANSYS Fluent içerisinde aşağıdaki sınır koşulları altında gerç
 Süreklilik denkleminin sağlanması ve kütle korunumunun kontrolü amacıyla debi verileri incelenmiştir.
 
 * **Teorik (Hedef) Debi:** $35.907 \, kg/s$
-* **CFD Giriş Debisi:** $31.1196 \, kg/s$
+* **CFD Giriş Debisi:** $36.1196 \, kg/s$
 * **CFD Çıkış Debisi:** $-36.12082 \, kg/s$
 
 **Hata Analizi:**
