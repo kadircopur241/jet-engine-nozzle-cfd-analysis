@@ -65,23 +65,16 @@ Referans değer ile analiz sonucu arasındaki fark binde 7 mertebesindedir. Mesh
 Lüle çıkış yüzeyindeki basınç ve momentum entegrasyonu sonucunda elde edilen net itki kuvveti aşağıdadır.
 
 **İtki Hesabı Formülü:**
-
-$$
-F_g = (\dot{m} \times V_9) + A_9 \times (P_9 - P_0)
-$$
+$$F_g = (\dot{m} \times V_9) + \int (P_{local} - P_0) dA$$
 
 **Sonuçlar:**
-
 * **Şartname (Teorik) İtki:** $40.00 \, kN$
-* **CFD Sonucu (Excel Hesaplaması):** $\mathbf{39.9615 \, kN}$
+* **CFD Sonucu (Net İtki):** $\mathbf{39.9615 \, kN}$
 
 **Hata Analizi:**
+$$\text{Hata} = \left| \frac{39.9615 - 40.00}{40.00} \right| \times 100 = \%0.096$$
 
-$$
-\text{Hata} = \left| \frac{39.9615 - 40.00}{40.00} \right| \times 100 = \%0.096
-$$
-
-*Teorik hedef ile CFD sonucu arasında **%0.1'in altında** mükemmel bir uyum yakalanmıştır.*
+*Teorik hedef ile CFD sonucu arasında **%0.1'in altında** mükemmel bir uyum yakalanmıştır. Fluent tarafından hesaplanan net kuvvet (Force Report), manuel ortalama hesaplamalarına göre çok daha hassas sonuç vermiştir.*
 
 ---
 
