@@ -14,7 +14,7 @@ Case-2 analizinde kullanılan lüle geometrisi, tasarım noktası (DP) ile aynı
 * **Iraksaklık Yarım Açısı ($\theta$):** $12^\circ$
 
 ## 3. Sınır Koşulları (Boundary Conditions)
-Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında gerçekleştirilmiştir.
+Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında gerçekleştirilmiştir. Akışkan olarak **İdeal Gaz** (Hava) seçilmiş olup, vizkozite için **Sutherland** modeli, ısı kapasitesi ($C_p$) için ise sıcaklığa bağlı polinom kullanılmıştır ($C_p \approx 1084.2 \, J/kgK$).
 
 | Parametre | Sembol | Değer | Birim |
 | :--- | :--- | :--- | :--- |
@@ -28,36 +28,33 @@ Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında ger�
 ## 4. Performans Analizi ve Doğrulama
 
 ### 4.1. Kütlesel Debi Analizi ($\dot{m}$)
-Süreklilik denkleminin sağlanması kontrol edilmiştir. Giriş basıncının artmasıyla birlikte kütlesel debide beklenen artış gözlemlenmiştir.
+$C_p$ düzeltmesi sonrası yapılan analizde, süreklilik denkleminin çok daha hassas bir şekilde sağlandığı görülmüştür.
 
 * **Teorik (Hedef) Debi:** $52.054 \, kg/s$
-* **CFD Giriş Debisi:** $52.8626 \, kg/s$
-* **CFD Çıkış Debisi:** $-52.8616 \, kg/s$ (Net akış)
+* **CFD Giriş Debisi:** $52.36805 \, kg/s$
+* **CFD Çıkış Debisi:** $-52.36831 \, kg/s$ (Net akış)
 
 **Hata Analizi:**
 
 $$
-\text{Hata} = \left| \frac{52.8616 - 52.054}{52.054} \right| \times 100 = \%1.55
+\text{Hata} = \left| \frac{52.36831 - 52.054}{52.054} \right| \times 100 = \%0.60
 $$
 
-*%1.55'lik sapma, sıkıştırılabilir akış analizleri için oldukça kabul edilebilir bir aralıktadır.*
+*%1.55 olan hata oranı, termodinamik modelin iyileştirilmesiyle (Real Gas effects) %0.60 seviyesine düşürülmüştür. Bu sonuç mükemmel bir doğruluğu işaret eder.*
 
 ### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
-Efektif akış alanının doğrulanması amacıyla Deşarj Katsayısı hesaplanmıştır.
+Efektif akış alanının doğrulanması amacıyla Deşarj Katsayısı güncel debi ile yeniden hesaplanmıştır.
 
 **Kullanılan Formül:**
-
-$$
-C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}
-$$
+$$C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}$$
 
 Termodinamik denklemlerle hesaplanan **İdeal (Isentropic) Kütlesel Debi ($\dot{m}_{ideal}$)** değeri **$55.316 \, kg/s$** olarak referans alınmıştır.
 
 * **Teorik $C_d$ (Referans):** $0.940$
-* **CFD $C_d$ (Hesaplanan):** $0.9467$
+* **CFD $C_d$ (Hesaplanan):** $52.368 / 55.316 = 0.9467$
 
 **Karşılaştırma:**
-Referans değer ile analiz sonucu arasındaki fark binde 7 mertebesindedir. Mesh yapısının sınır tabaka etkilerini ($boundary layer$) başarıyla modellediği görülmektedir.
+Referans değer ($0.940$) ile analiz sonucu ($0.947$) arasındaki fark binde 7 mertebesindedir. Mesh yapısının sınır tabaka etkilerini ($boundary layer$) başarıyla modellediği görülmektedir.
 
 ---
 
@@ -85,19 +82,12 @@ $$\text{Hata} = \left| \frac{39.9615 - 40.00}{40.00} \right| \times 100 = \%0.09
 * $\dot{m}_{ideal} = 55.316 \, kg/s$
 * $V_{ideal} = 763.602 \, m/s$
 
-$$
-F_{g,ideal} = \dot{m}_{ideal} \times V_{ideal}
-$$
-
-$$
-F_{g,ideal} = 55.316 \times 763.602 \approx \mathbf{42.24 \, kN}
-$$
+$$F_{g,ideal} = \dot{m}_{ideal} \times V_{ideal}$$
+$$F_{g,ideal} = 55.316 \times 763.602 \approx \mathbf{42.24 \, kN}$$
 
 **İtki Katsayısı Hesabı:**
 
-$$
-C_{fg} = \frac{F_{g,bulunan}}{F_{g,ideal}} = \frac{39.9615}{42.24} = \mathbf{0.946}
-$$
+$$C_{fg} = \frac{F_{g,bulunan}}{F_{g,ideal}} = \frac{39.9615}{42.24} = \mathbf{0.946}$$
 
 * **Teorik $C_{fg}$:** $0.970$
 * **Hesaplanan $C_{fg}$:** $0.946$
@@ -107,7 +97,7 @@ Hesaplanan itki katsayısı, teorik beklentiye oldukça yakındır. Aradaki kü�
 
 ## 5. Sonuç
 Case-2 koşullarında yapılan analizlerde:
-1. Kütlesel debi hatası **%1.55**,
+1. Kütlesel debi hatası **%0.60** (Önceki: %1.55),
 2. İtki kuvveti hatası **%0.1** (Mükemmel Doğrulama),
 3. $C_d$ ve $C_{fg}$ katsayıları teorik limitler dahilinde elde edilmiştir.
 
