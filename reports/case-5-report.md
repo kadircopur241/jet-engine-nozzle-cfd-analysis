@@ -36,11 +36,17 @@ Süreklilik denkleminin sağlanması amacıyla kütle korunumu kontrol edilmiş 
 **Hata Analizi:**
 
 $$
+\text{Hata} = \left| \frac{\dot{m}_{CFD,çıkış} - \dot{m}_{Teorik}}{\dot{m}_{Teorik}} \right| \times 100
+$$
+
+$$
 \text{Hata} = \left| \frac{18.97797 - 18.857}{18.857} \right| \times 100 = \mathbf{\%0.641}
 $$
 
+*%1'in altındaki bu hata oranı, çözümün başarıyla yakınsadığını ve kütle korunumunun sağlandığını gösterir.*
+
 ### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
-Boğaz bölgesindeki akış verimliliğini belirlemek için aşağıdaki yöntem kullanılmıştır:
+Boğaz bölgesindeki akış verimliliğini belirlemek için bulunan kütlesel debinin ideal izentropik debiye oranı kullanılmıştır.
 
 $$
 C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}
@@ -73,7 +79,19 @@ $$
 ---
 
 ### 4.4. İtki ($F_g$) ve Verim ($C_{fg}$) Karşılaştırmalı Analiz
-Analizden elde edilen performans verileri, güncellenmiş şartname değerleri ile aşağıda karşılaştırılmıştır.
+Lülenin genel verimlilik göstergesi olan $C_{fg}$ değeri, CFD itkisinin ideal itkiye bölünmesiyle bulunmuştur. İdeal değerler için kullanılan termodinamik denklemler aşağıdadır:
+
+**İdeal Kütlesel Debi ve Çıkış Hızı Formülleri:**
+
+$$
+\dot{m}_{ideal} = \frac{A_8 \cdot P_{t7}}{\sqrt{T_{t7}}} \sqrt{\frac{\gamma}{R} \left( \frac{2}{\gamma+1} \right)^{\frac{\gamma+1}{\gamma-1}}} \quad , \quad V_{ideal} = \sqrt{2 \cdot C_p \cdot T_{t7} \left[ 1 - \left( \frac{P_0}{P_{t7}} \right)^{\frac{\gamma-1}{\gamma}} \right]}
+$$
+
+* **İdeal Kütlesel Debi ($\dot{m}_{ideal}$):** $20.03859 \, kg/s$
+* **İdeal Çıkış Hızı ($V_{ideal}$):** $914.154 \, m/s$
+* **İdeal İtki ($F_{g,ideal}$):** $18.31836 \, kN$
+
+**Karşılaştırma Tablosu:**
 
 | Parametre | Teorik / Şartname | CFD Sonucu | Hata / Fark |
 | :--- | :--- | :--- | :--- |
@@ -83,7 +101,7 @@ Analizden elde edilen performans verileri, güncellenmiş şartname değerleri i
 **İtki Katsayısı ($C_{fg}$) Hesabı:**
 
 $$
-C_{fg} = \frac{17.787}{18.318} = \mathbf{0.971}
+C_{fg,CFD} = \frac{F_{g,CFD}}{F_{g,ideal}} = \frac{17.787}{18.31836} = \mathbf{0.971}
 $$
 
 ---
@@ -92,7 +110,7 @@ $$
 
 Case-5 analizinde lüle, süpersonik rejime tam uyum sağlamış ve Mach 2.54 hızına ulaşmıştır. Yapılan analizler sonucunda şu çıkarımlar yapılmıştır:
 
-1. **Sayısal Doğrulama:** Kütlesel debi hata payının **%0.64** olması, çözüm ağının ve fiziksel modelin yüksek tutarlılıkla çalıştığını ispatlamıştır.
-2. **Kusursuz Uyum:** Güncellenen şartname değeri ($17.13 \, kN$) ile CFD sonucu arasındaki farkın **%3.83** seviyesine inmesi, analizin tasarım hedeflerini tam isabetle karşıladığını göstermektedir.
-3. **Yüksek Verimlilik:** Nozzle verimini gösteren **İtki Katsayısı ($C_{fg}$)** değerinin **0.971** çıkması, tasarımın teorik referansı başarıyla geçtiğini kanıtlamıştır.
-4. **Basınç Katkısı:** Lülenin "under-expanded" modda çalışması ($P_9 > P_0$), net itkiye pozitif bir basınç bileşeni ekleyerek motor performansına katkı sağlamıştır.
+1. **Sayısal Doğrulama:** Kütlesel debi hata payının **%0.64** seviyesinde kalması, modelin ve mesh yapısının doğruluğunu kanıtlamıştır.
+2. **Kusursuz Uyum:** Şartnamede belirtilen güncel itki değeri ($17.13 \, kN$) ile CFD sonucu arasındaki farkın **%3.83** gibi düşük bir seviyede olması analizin başarısını doğrular.
+3. **Yüksek Verimlilik:** Nozzle verimini gösteren **İtki Katsayısı ($C_{fg}$)** değerinin **0.971** çıkması, tasarımın sürtünme kayıplarını minimumda tutarak teorik hedefleri yakaladığını ispatlamıştır.
+4. **Basınç Katkısı:** Lülenin "under-expanded" modda çalışması ($P_9 > P_0$), net itkiye pozitif yönde bir basınç bileşeni ekleyerek motor performansını desteklemiştir.
