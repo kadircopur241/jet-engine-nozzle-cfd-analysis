@@ -35,6 +35,7 @@ Süreklilik denkleminin sağlanması ve kütle korunumunun kontrolü amacıyla d
 * **CFD Çıkış Debisi:** $-36.12082 \, kg/s$ (Net akış)
 
 **Hata Analizi:**
+
 $$
 \text{Hata} = \left| \frac{36.12082 - 35.907}{35.907} \right| \times 100 = \%0.59
 $$
@@ -43,6 +44,7 @@ $$
 
 ### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
 Boğaz bölgesindeki akış verimliliğini belirlemek için aşağıdaki yöntem kullanılmıştır:
+
 $$
 C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}
 $$
@@ -61,6 +63,7 @@ Lüle çıkış yüzeyinden alınan verilerle net itki hesaplanmıştır.
 * **Çıkış Basıncı ($P_9$):** $51,012.3 \, Pa$
 
 **İtki Hesabı Formülü:**
+
 $$
 F_g = (\dot{m} \times V_9) + A_9 \times (P_9 - P_0)
 $$
@@ -80,13 +83,11 @@ Analizden elde edilen performans verileri ile teorik referanslar arasındaki ili
 | **İtki Katsayısı ($C_{fg}$)** | $0.968$ | $0.961$ | %0.72 |
 
 **İtki Katsayısı ($C_{fg}$) Hesabı:**
+
 $$
 C_{fg} = \frac{F_{g,bulunan}}{F_{g,ideal}} = \frac{30.045}{31.25} = \mathbf{0.961}
 $$
 
 **Değerlendirme:**
-* **İtki:** CFD sonucu şartname değerinden %1.91 daha yüksek çıkmıştır. Bu, çıkış basıncının ortam basıncından yüksek olması sebebiyle oluşan ek basınç itkisinden kaynaklanır.
-* **Verim:** Hesaplanan $0.961$ değeri, teorik $0.968$ referansına oldukça yakındır. Aradaki %0.72'lik fark, süpersonik akıştaki sürtünme ve sınır tabaka kayıplarını temsil eder.
-
-## 5. Sonuç
-Case-3 analizinde lüle, süpersonik rejime tam uyum sağlamış ve Mach 2.24 hızına ulaşmıştır. Yapılan debi ve itki karşılaştırmaları sonucunda, CFD modelinin teorik verilerle **%99'un üzerinde tutarlılıkla** örtüştüğü doğrulanmıştır.
+* **İtki:** CFD sonucu şartname değerinden %1.91 daha yüksek çıkmıştır. Bu durum, çıkış basıncının ortam basıncından yüksek olması ($P_9 > P_0$) nedeniyle oluşan ek basınç itkisinden kaynaklanır.
+* **Verim:** Hesaplanan $0.961$ değeri, teorik $0.968$ referansına
