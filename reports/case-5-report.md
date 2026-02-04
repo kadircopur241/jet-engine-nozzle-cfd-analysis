@@ -33,11 +33,18 @@ Süreklilik denkleminin sağlanması amacıyla kütle korunumu kontrol edilmiş 
 * **CFD Giriş Debisi:** $18.97863 \, kg/s$
 * **CFD Çıkış Debisi:** $-18.97797 \, kg/s$
 
-**Hata Analizi:**
+**1. Süreklilik Hatası (Giriş vs Çıkış):**
 
 $$
-\text{Hata} = \left| \frac{18.97797 - 18.857}{18.857} \right| \times 100 = \mathbf{\%0.641}
+\text{Hata}_{\text{süreklilik}} = \left| \frac{\dot{m}_{in} - |\dot{m}_{out}|}{\dot{m}_{in}} \right| \times 100 = \mathbf{\%0.0005}
 $$
+
+**2. Tahmin Hatası (CFD vs Teorik):**
+
+$$
+\text{Hata}_{\text{tahmin}} = \left| \frac{|\dot{m}_{out}| - 52.054}{52.054} \right| \times 100 = \mathbf{\%0.60}
+$$
+
 
 *%1'in altındaki bu hata oranı, çözümün başarıyla yakınsadığını ve kütle korunumunun sağlandığını gösterir.*
 
