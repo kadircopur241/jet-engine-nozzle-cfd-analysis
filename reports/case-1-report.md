@@ -9,11 +9,12 @@ Lüle tasarımında akış ayrılmalarını önlemek ve optimum genişlemeyi sa�
 * **Giriş Alanı ($A_7$):** $0.19632 \, m^2$
 * **Boğaz Alanı ($A_8$):** $0.06745 \, m^2$
 * **Alan Oranı ($A_9/A_8$):** $1.178$
+* **Çıkış Alanı ($A_9$):** $0.07945 \, m^2$ (Hesaplanan)
 * **Yakınsaklık Yarım Açısı ($\alpha$):** $30^\circ$
 * **Iraksaklık Yarım Açısı ($\theta$):** $12^\circ$
 
 ## 3. Sınır Koşulları (Boundary Conditions)
-Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında gerçekleştirilmiştir. Akışkan olarak **İdeal Gaz** (Hava) seçilmiş olup, vizkozite için **Sutherland** modeli, ısı kapasitesi ($C_p$) için ise sıcaklığa bağlı polinom kullanılmıştır ($C_p \approx 1084.2 \, J/kgK$).
+Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında gerçekleştirilmiştir. Akışkan olarak **İdeal Gaz** (Hava) seçilmiş olup, özgül ısı kapasitesi ($C_p$) sabit $1084.2 \, J/kgK$ kabul edilmiştir.
 
 | Parametre | Sembol | Değer | Birim |
 | :--- | :--- | :--- | :--- |
@@ -26,107 +27,89 @@ Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında ger�
 
 ## 4. Performans Analizi ve Doğrulama
 
-### 4.1. Kütlesel Debi Analizi ($\dot{m}$)
-Süreklilik denkleminin sağlanması ve kütle korunumunun kontrolü amacıyla giriş ve çıkış debileri incelenmiştir.
+### 4.1. Kütlesel Debi Analizi ($\dot{m}$) ve Süreklilik Kontrolü
+Süreklilik denkleminin sağlanması amacıyla hem giriş-çıkış farkı (sayısal kararlılık) hem de teorik değerle olan sapma (model doğruluğu) kontrol edilmiştir.
 
 * **Teorik (Hedef) Debi:** $37.714 \, kg/s$
-* **CFD Giriş Debisi:** $38.014 \, kg/s$
-* **CFD Çıkış Debisi:** $-38.012 \, kg/s$ (Net akış)
+* **CFD Giriş Debisi ($\dot{m}_{in}$):** $38.014 \, kg/s$
+* **CFD Çıkış Debisi ($\dot{m}_{out}$):** $-38.012 \, kg/s$
 
-**Hata Analizi:**
-
-Teorik hedef ile CFD sonucu arasındaki fark:
-
+**1. Süreklilik Hatası (Giriş vs Çıkış):**
 $$
-\text{Hata} = \left| \frac{38.012 - 37.714}{37.714} \right| \times 100 = \%0.79
+\text{Hata}_{\text{süreklilik}} = \left| \frac{\dot{m}_{in} - |\dot{m}_{out}|}{\dot{m}_{in}} \right| \times 100 = \mathbf{\%0.005}
+$$
+
+**2. Tahmin Hatası (CFD vs Teorik):**
+$$
+\text{Hata}_{\text{tahmin}} = \left| \frac{|\dot{m}_{out}| - 37.714}{37.714} \right| \times 100 = \mathbf{\%0.79}
 $$
 
 *%1'in altındaki bu sapma, çözüm ağının ve sınır koşullarının yüksek doğruluğunu göstermektedir.*
 
-### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
-Sıkıştırılabilir akışlarda boğaz bölgesindeki efektif alanı belirlemek zor olduğu için, $C_d$ hesabı kütlesel debiler üzerinden yapılmıştır.
-
-**Kullanılan Formül:**
+### 4.2. Deşarj Katsayısı ($C_d$) Karşılaştırması
+Boğaz bölgesindeki gerçek akışın ideal izentropik akışa oranı üzerinden hesaplanan $C_d$ analizi aşağıdadır:
 
 $$
-C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}
+C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}} = \frac{38.012}{40.07} = \mathbf{0.9485}
 $$
 
-Termodinamik denklemlerle hesaplanan **İdeal (Isentropic) Kütlesel Debi ($\dot{m}_{ideal}$)** değeri **$40.07 \, kg/s$** olarak bulunmuştur.
-
-* **Teorik $C_d$ (Referans):** $0.941$
-* **CFD $C_d$ (Hesaplanan):** $38.012 / 40.07 = 0.9485$
-
-**Karşılaştırma:**
-Referans değer ile analiz sonucu arasındaki fark **%0.8** mertebesindedir. Bu sonuç, viskoz etkilerin ve sınır tabaka oluşumunun analizde doğru modellendiğini kanıtlar.
+* **Teorik $C_d$ Referansı:** $0.941$
+* **CFD Hesaplanan $C_d$:** $0.9485$
+* **Fark:** $\%0.8$
 
 ---
 
 ### 4.3. İtki Kuvveti ($F_g$) Analizi
-Analiz sonucunda lüle çıkış düzleminden (Station 9) alınan ortalama veriler şöyledir:
+Lüle çıkış yüzeyinden alınan verilerle toplam net itki hesaplanmıştır.
+
 * **Çıkış Hızı ($V_9$):** $686.264 \, m/s$
-* **Çıkış Basıncı ($P_9$):** $119,938.5 \, Pa$
-* **Çıkış Alanı ($A_9$):** $0.0786 \, m^2$ (Alan oranından hesaplanmıştır)
+* **Çıkış Mutlak Basıncı ($P_9$):** $119,938.5 \, Pa$
+* **Çıkış Alanı ($A_9$):** $0.07945 \, m^2$
 
-**İtki Hesabı Formülü:**
-
+**İtki Formülü:**
 $$
 F_g = (\dot{m} \times V_9) + A_9 \times (P_9 - P_0)
 $$
 
-**Hesaplama:**
-
+**CFD İtki Hesabı:**
 $$
-F_{g,CFD} = (38.012 \times 686.264) + 0.0786 \times (119938.5 - 101325)
+F_{g,CFD} = (38.012 \times 686.264) + 0.07945 \times (119938.5 - 101325) = \mathbf{27.56 \, kN}
 $$
-
-$$
-F_{g,CFD} \approx 26,086 + 1,463 = 27,549 \, N \approx \mathbf{27.55 \, kN}
-$$
-
-**Doğrulama:**
-* **Şartname (Teorik) İtki:** $26.98 \, kN$
-* **CFD Sonucu:** $27.55 \, kN$
-* **Sapma:** ~%2.1 (Kabul edilebilir sınırlar içerisindedir).
 
 ---
 
-### 4.4. İtki Katsayısı ($C_{fg}$) ve Verim
-Nozzle performansının en önemli göstergesi olan itki katsayısı, CFD itkisinin ideal itkiye oranıyla bulunmuştur.
+### 4.4. İtki ($F_g$) ve Verim ($C_{fg}$) Karşılaştırmalı Analiz
+Lülenin genel verimlilik göstergesi olan $C_{fg}$ değeri, CFD itkisinin ideal itkiye bölünmesiyle bulunmuştur. İdeal değerler için kullanılan termodinamik denklemler aşağıdadır:
 
-İdeal çıkış hızı ($V_{ideal}$), izentropik genişleme varsayımıyla **$710.193 \, m/s$** olarak hesaplanmıştır.
-
-$$
-F_{g,ideal} = \dot{m}_{ideal} \times V_{ideal}
-$$
+**İdeal Kütlesel Debi ve Çıkış Hızı Formülleri:**
 
 $$
-F_{g,ideal} = 40.07 \times 710.193 \approx \mathbf{28.46 \, kN}
+\dot{m}_{ideal} = \frac{A_8 \cdot P_{t7}}{\sqrt{T_{t7}}} \sqrt{\frac{\gamma}{R} \left( \frac{2}{\gamma+1} \right)^{\frac{\gamma+1}{\gamma-1}}} \quad , \quad V_{ideal} = \sqrt{2 \cdot C_p \cdot T_{t7} \left[ 1 - \left( \frac{P_0}{P_{t7}} \right)^{\frac{\gamma-1}{\gamma}} \right]}
 $$
 
-**İtki Katsayısı Hesabı:**
+* **İdeal Kütlesel Debi ($\dot{m}_{ideal}$):** $40.07 \, kg/s$
+* **İdeal Çıkış Hızı ($V_{ideal}$):** $710.193 \, m/s$
+* **İdeal İtki ($F_{g,ideal}$):** $28.46 \, kN$
 
-$$
-C_{fg} = \frac{F_{g,bulunan}}{F_{g,ideal}} = \frac{27.55}{28.46} = 0.968
-$$
+**Karşılaştırma Tablosu:**
 
-* **Teorik $C_{fg}$:** $0.970$
-* **Hesaplanan $C_{fg}$:** $0.968$
-* **Sonuç:** %0.2'lik mükemmel bir uyum yakalanmıştır.
+| Parametre | Teorik / Şartname | CFD Sonucu | Hata / Fark |
+| :--- | :--- | :--- | :--- |
+| **İtki Kuvveti ($F_g$)** | $26.98 \, kN$ | $27.56 \, kN$ | %2.1 |
+| **İtki Katsayısı ($C_{fg}$)** | $0.970$ | $0.968$ | %0.2 |
+
+**İtki Katsayısı ($C_{fg}$) Hesabı:**
+$$
+C_{fg,CFD} = \frac{F_{g,CFD}}{F_{g,ideal}} = \frac{27.56}{28.46} = \mathbf{0.968}
+$$
 
 ---
 
 ## 5. Sonuç ve Genel Değerlendirme
 
-Case-1 (Standart Çalışma Koşulları) altında gerçekleştirilen CFD analizleri sonucunda aşağıdaki teknik çıkarımlar yapılmıştır:
+Case-1 (DP) analizi sonucunda elde edilen veriler ışığında şu çıkarımlar yapılmıştır:
 
-1. **Akış Karakteristiği:** 420 kPa giriş basıncı altında yapılan analizde, akışın lüle içerisinde beklenen genişlemeyi gerçekleştirdiği ve süreklilik denkleminin başarıyla sağlandığı görülmüştür. Giren ve çıkan kütlesel debi farkı binde bir mertebesindedir.
-
-2. **Kütlesel Debi Doğrulaması:** * **Teorik Hedef:** $37.714 \, kg/s$
-   * **CFD Sonucu:** $38.012 \, kg/s$
-   * **Hata:** %0.79 düzeyinde kalarak sayısal modelin güvenilirliğini kanıtlamıştır.
-
-3. **İtki ve Verimlilik Performansı:** * Elde edilen net itki ($27.24 \, kN$), $26.98 \, kN$ olan teorik hedefle yüksek uyum içindedir.
-   * Hesaplanan **0.9485** $C_d$ değeri ve **0.965** $C_{fg}$ değeri, tasarımın standart koşullarda %96'nın üzerinde bir itki verimliliği sunduğunu göstermektedir.
-
-4. **Genel Kanı:** Sayısal analiz sonuçları, geometrinin düşük hızlardaki (Mach 1.18 genişleme oranı) performansının teorik limitlere çok yakın olduğunu doğrulamaktadır.
+1. **Sayısal Kararlılık:** Süreklilik hatasının **%0.005** gibi çok düşük bir seviyede kalması, CFD çözümünün sayısal olarak mükemmel şekilde yakınsadığını ispatlamıştır.
+2. **Kütlesel Debi Doğrulaması:** Analizden elde edilen kütlesel debinin hedef değerle olan **%0.79**'luk farkı, viskoz etkilerin ve sınır tabaka gelişiminin modelde doğru temsil edildiğini kanıtlar.
+3. **İtki Performansı:** Elde edilen **27.56 kN** itki kuvveti, tasarım hedefi olan 26.98 kN ile yüksek uyum içindedir. Aradaki küçük fark, lüle çıkışındaki basınç genişleme farkından kaynaklanmaktadır.
+4. **Verimlilik:** Hesaplanan **0.968** $C_{fg}$ değeri, lülenin standart tasarım koşullarında %96.8 verimle çalıştığını ve teorik beklentileri %99.8 oranında karşıladığını göstermektedir.
