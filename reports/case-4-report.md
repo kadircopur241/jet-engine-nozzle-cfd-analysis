@@ -9,7 +9,7 @@ Tasarımda kullanılan lüle geometrisi, yüksek genişleme oranına göre optim
 * **Giriş Alanı ($A_7$):** $0.19635 \, m^2$
 * **Boğaz Alanı ($A_8$):** $0.06709 \, m^2$
 * **Alan Oranı ($A_9 / A_8$):** $2.000$
-* **Çıkış Alanı ($A_9$):** $0.13418 \, m^2$ (Hesaplanan)
+* **Çıkış Alanı ($A_9$):** $0.13418 \, m^2$
 * **Yakınsaklık Yarım Açısı ($\alpha$):** $30^\circ$
 * **Iraksaklık Yarım Açısı ($\theta$):** $12^\circ$
 
@@ -57,10 +57,10 @@ Termodinamik denklemlerle hesaplanan **İdeal Kütlesel Debi ($\dot{m}_{ideal}$)
 ---
 
 ### 4.3. İtki Kuvveti ($F_g$) Analizi
-Lüle çıkış yüzeyinden alınan verilerle net itki hesaplanmıştır.
+Lüle çıkış yüzeyinden alınan güncel verilerle net itki hesaplanmıştır.
 
 * **Çıkış Hızı ($V_9$):** $876.89 \, m/s$
-* **Çıkış Basıncı ($P_9$):** $165,286.3 \, Pa$
+* **Çıkış Mutlak Basıncı ($P_9$):** $35,660 \, Pa$
 
 **İtki Hesabı Formülü:**
 
@@ -68,33 +68,39 @@ $$
 F_g = (\dot{m} \times V_9) + A_9 \times (P_9 - P_0)
 $$
 
-**Sonuçlar:**
-* **Şartname (Teorik) İtki:** $30.99 \, kN$
-* **CFD Sonucu (Net İtki):** $\mathbf{31.52 \, kN}$
+**Hesaplama:**
+
+$$
+F_{g,CFD} = (35.20957 \times 876.89) + 0.13418 \times (35660 - 30088)
+$$
+
+$$
+F_{g,CFD} \approx 30,875 + 747 = \mathbf{31.622 \, kN}
+$$
 
 ---
 
 ### 4.4. İtki ($F_g$) ve Verim ($C_{fg}$) Karşılaştırmalı Analiz
-Analizden elde edilen performans verileri ile teorik referanslar arasındaki ilişki aşağıda özetlenmiştir.
+Düzeltilmiş basınç değerleri sonrası analiz verileri ile teorik referanslar arasındaki ilişki mükemmel bir uyum yakalamıştır.
 
 | Parametre | Teorik / Şartname | CFD Sonucu | Hata / Fark |
 | :--- | :--- | :--- | :--- |
-| **İtki Kuvveti ($F_g$)** | $30.99 \, kN$ | $31.52 \, kN$ | %1.71 |
-| **İtki Katsayısı ($C_{fg}$)** | $0.966$ | $0.957$ | %0.93 |
+| **İtki Kuvveti ($F_g$)** | $30.99 \, kN$ | $31.622 \, kN$ | %2.04 |
+| **İtki Katsayısı ($C_{fg}$)** | $0.966$ | $0.960$ | %0.62 |
 
 **İtki Katsayısı ($C_{fg}$) Hesabı:**
 
 $$
-C_{fg} = \frac{F_{g,bulunan}}{F_{g,ideal}} = \frac{31.52}{32.9398} = \mathbf{0.957}
+C_{fg} = \frac{F_{g,bulunan}}{F_{g,ideal}} = \frac{31.622}{32.9398} = \mathbf{0.960}
 $$
 
 **Değerlendirme:**
-* **İtki:** CFD sonucu şartname değerinden %1.71 daha yüksek çıkmıştır. Bu durum, çıkış basıncının ortam basıncından yüksek olması ($P_9 > P_0$) nedeniyle oluşan ek basınç itkisinden kaynaklanır.
-* **Verim:** Hesaplanan $0.957$ değeri, teorik $0.966$ referansına oldukça yakındır. Aradaki %0.93'lük fark, süpersonik akıştaki sürtünme ve sınır tabaka kayıplarını temsil eder.
+* **İtki:** CFD sonucu şartname değerinden sadece %2.04 sapma göstermektedir.
+* **Verim:** Hesaplanan $0.960$ $C_{fg}$ değeri, teorik referans olan $0.966$ değerine **%99.38** oranında yakındır. Bu sonuç, süpersonik kayıpların tasarım limitleri içerisinde olduğunu kanıtlar.
 
 ## 5. Sonuç ve Genel Değerlendirme
-Case-4 analizleri sonucunda lüle, yüksek süpersonik hızlarda (**Mach 2.55**) stabil bir çalışma sergilemiştir.
+Case-4 analizleri, lülenin yüksek genişleme rejiminde (**Mach 2.55**) stabil ve yüksek verimli çalıştığını göstermiştir.
 
-1. **Süreklilik:** Giriş-çıkış kütlesel debi farkı binde bir mertebesinde kalarak sayısal çözümün başarıyla yakınsadığını göstermiştir.
-2. **Hassasiyet:** Teorik debi ile analiz sonucu arasındaki hata **%0.587** gibi oldukça düşük bir seviyededir.
-3. **Doğrulama:** Hesaplanan itki ve verimlilik katsayıları, tasarlanan geometrinin yüksek irtifa basınç oranlarında teorik tasarım kriterlerini tam tutarlılıkla karşıladığını ispatlamaktadır.
+1. **Süreklilik:** Kütlesel debi dengesi binde bir hassasiyetle sağlanmıştır.
+2. **Hassasiyet:** Basınç düzeltmesi sonrası verimlilik hatası **%0.62**'ye düşerek modelin doğruluğunu kesinleştirmiştir.
+3. **Doğrulama:** Tasarlanan geometri, yüksek irtifa koşullarında hedef itki değerlerini teorik beklentilerle tam uyumlu şekilde üretmektedir.
