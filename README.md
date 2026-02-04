@@ -22,7 +22,7 @@ Analiz dosyalarına, görsellere ve detaylı sonuç raporlarına aşağıdaki kl
 Bu çalışmada, bir jet motoru yarışması kapsamında tasarlanan yakınsak–ıraksak (CD) nozulun iç akış karakteristikleri sayısal akışkanlar dinamiği (CFD) yöntemiyle incelenmiştir. Analizler ANSYS Fluent kullanılarak gerçekleştirilmiş, sıkıştırılabilir akış varsayımı altında Mach sayısı, basınç dağılımları ve kütlesel debi değerleri elde edilmiştir. Sayısal sonuçlar, teorik akış hesaplamaları ile karşılaştırılarak nozul tasarımı doğrulanmıştır.
 
 
-## Analiz Sonuçları (Case-1)
+## Analiz Sonuçları
 
 Aşağıdaki tablo, tasarımın temel akış karakteristiklerini ve sayısal analiz sonuçlarını içermektedir:
 
@@ -35,7 +35,7 @@ Farklı basınç ve geometrik parametreler altında yapılan analizlerin görsel
 | **Durum 1 (Case-1)** | [Görüntüle](./images/case-1/case-1-pressure.png) | [Görüntüle](./images/case-1/case-1-mach-number.png) | [Görüntüle](./images/case-1/case-1-mesh.png) |
 | **Durum 2 (Case-2)** | [Görüntüle](./images/case-2/case-2-pressure.png) | [Görüntüle](./images/case-2/case-2-mach-number.png) | [Görüntüle](./images/case-2/case-2-mesh.png) |
 | **Durum 3 (Case-3)** | [Görüntüle](./images/case-3/case-3-pressure.png) | [Görüntüle](./images/case-3/case-3-mach-number.png) | [Görüntüle](./images/case-3/case-3-mesh.png) |
-| ... | ... | ... | ... |
+| **Durum 4 (case-4)** | [Görüntüle](./images/case-4/case-4-pressure.png) | [Görüntüle](./images/case-4/case-4-mach-number.png) | [Görüntüle](./images/case-4/case-4-mesh.png) |
 
 ---
 
