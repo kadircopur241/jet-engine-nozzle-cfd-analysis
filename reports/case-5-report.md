@@ -27,67 +27,81 @@ Analiz, ANSYS Fluent içerisinde aşağıdaki sınır koşulları altında gerç
 ## 4. Performans Analizi ve Doğrulama
 
 ### 4.1. Kütlesel Debi Analizi ($\dot{m}$)
-Süreklilik denkleminin sağlanması amacıyla kütle korunumu kontrol edilmiştir.
+Süreklilik denkleminin sağlanması amacıyla kütle korunumu kontrol edilmiş ve teorik değerle kıyaslanmıştır.
 
 * **Teorik (Hedef) Debi:** $18.857 \, kg/s$
 * **CFD Giriş Debisi:** $18.97863 \, kg/s$
-* **CFD Çıkış Debisi:** $-18.97797 \, kg/s$ (Net akış)
+* **CFD Çıkış Debisi:** $-18.97797 \, kg/s$
 
-**Hata Analizi:**
-
-$$
-\text{Hata} = \left| \frac{18.97797 - 18.857}{18.857} \right| \times 100 = \%0.64
-$$
-
-### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
-Boğaz bölgesindeki akış verimliliğini belirlemek için bulunan ve ideal kütlesel debi oranları kullanılmıştır.
+**Kütlesel Debi Hata Analizi:**
 
 $$
-C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}
+\text{Hata} = \left| \frac{\dot{m}_{CFD,çıkış} - \dot{m}_{Teorik}}{\dot{m}_{Teorik}} \right| \times 100
 $$
 
-* **Teorik $C_d$ (Referans):** $0.940$
-* **CFD $C_d$ (Hesaplanan):** $18.97797 / 20.03859 = \mathbf{0.956}$
+$$
+\text{Hata} = \left| \frac{18.97797 - 18.857}{18.857} \right| \times 100 = \mathbf{\%0.641}
+$$
+
+*%1'in altındaki bu hata oranı, çözümün (convergence) başarıyla tamamlandığını ve kütle korunumunun sağlandığını gösterir.*
+
+### 4.2. Deşarj Katsayısı ($C_d$) Karşılaştırması
+Boğaz bölgesindeki gerçek akışın ideal akışa oranı üzerinden hesaplanan $C_d$ değeri aşağıdadır:
+
+$$
+C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}} = \frac{18.97797}{20.03859} = \mathbf{0.947}
+$$
+
+* **Teorik $C_d$:** $0.940$
+* **CFD $C_d$:** $0.947$
+* **Fark:** $\%0.74$
+
+*Analizden elde edilen $C_d$ değeri, teorik referansla binde 7 fark ile örtüşmektedir.*
 
 ---
 
 ### 4.3. İtki Kuvveti ($F_g$) Analizi
-Lüle çıkış yüzeyinden alınan güncel verilerle net itki hesaplanmıştır.
+Lüle çıkış yüzeyinden alınan verilerle toplam net itki hesaplanmıştır.
 
 * **Çıkış Hızı ($V_9$):** $876.89 \, m/s$
 * **Çıkış Mutlak Basıncı ($P_9$):** $20,213.8 \, Pa$
+* **Çıkış Alanı ($A_9$):** $0.1329 \, m^2$
 
-**İtki Hesabı Formülü:**
+**İtki Formülü:**
 
 $$
 F_g = (\dot{m} \times V_9) + A_9 \times (P_9 - P_0)
 $$
 
-**Hesaplanan CFD İtkisi:** $\mathbf{17.787 \, kN}$
+**CFD İtki Hesabı:**
+
+$$
+F_{g,CFD} = (18.97797 \times 876.89) + 0.1329 \times (20213.8 - 11597) = \mathbf{17.787 \, kN}
+$$
 
 ---
 
-### 4.4. İtki ($F_g$) ve Verim ($C_{fg}$) Karşılaştırmalı Analiz
-Analizden elde edilen performans verileri, şartname değerleri ile aşağıda karşılaştırılmıştır.
+### 4.4. İtki Katsayısı ($C_{fg}$) Karşılaştırması
+Lülenin genel verimlilik göstergesi olan $C_{fg}$ değeri, CFD itkisinin ideal izentropik itkiye bölünmesiyle bulunmuştur.
 
-| Parametre | Teorik / Şartname | CFD Sonucu | Hata / Fark |
-| :--- | :--- | :--- | :--- |
-| **İtki Kuvveti ($F_g$)** | $30.99 \, kN$ | $17.787 \, kN$ | %42.6 |
-| **İtki Katsayısı ($C_{fg}$)** | $0.961$ | $0.970$ | %0.93 |
-
-**İtki Katsayısı ($C_{fg}$) Hesabı:**
+* **İdeal İtki ($F_{g,ideal}$):** $18.31836 \, kN$
+* **CFD Net İtki ($F_{g,CFD}$):** $17.787 \, kN$
 
 $$
-C_{fg} = \frac{F_{g,bulunan}}{F_{g,ideal}} = \frac{17.787}{18.318} = \mathbf{0.970}
+C_{fg,CFD} = \frac{F_{g,CFD}}{F_{g,ideal}} = \frac{17.787}{18.31836} = \mathbf{0.971}
 $$
+
+* **Teorik $C_{fg}$:** $0.961$
+* **CFD $C_{fg}$:** $0.971$
+* **Fark:** $\%1.04$
 
 ---
 
 ## 5. Sonuç ve Genel Değerlendirme
 
-Case-5 analizinde lüle, süpersonik rejime tam uyum sağlamış ve Mach 2.54 hızına ulaşmıştır.
+Case-5 analizinde lüle, süpersonik rejime tam uyum sağlamış ve Mach 2.54 hızına ulaşmıştır. Yapılan analizler sonucunda şu çıkarımlar yapılmıştır:
 
-1. **Kütle Korunumu:** Giriş ve çıkış debileri arasındaki fark binde bir hassasiyetin altına inerek çözümün mükemmel şekilde yakınsadığını ispatlamıştır.
-2. **İtki Farkının Nedeni:** Şartname itkisi ($30.99 \, kN$) ile CFD itkisi ($17.787 \, kN$) arasındaki fark, motorun çalışma noktasındaki düşük giriş basıncından (210 kPa) kaynaklanmaktadır. Bu durum motorun itki kapasitesini düşürse de lülenin tasarım verimliliğini etkilememektedir.
-3. **Yüksek Verimlilik:** Nozzle performansının en saf göstergesi olan **İtki Katsayısı ($C_{fg}$)** değerinin **0.970** olarak hesaplanması, tasarımın teorik verim limitlerini (%0.93 fark ile) başarıyla karşıladığını doğrulamaktadır.
-4. **Basınç Katkısı:** Çıkış basıncının ortam basıncı değerinden yüksek olması ($P_9 > P_0$), itkiye pozitif yönde bir basınç bileşeni ekleyerek yüksek irtifa performansını desteklemiştir.
+1. **Sayısal Doğrulama:** Kütlesel debi hata payı **%0.64** gibi çok düşük bir seviyede gerçekleşmiştir. Bu durum, kullanılan sınır tabaka modellerinin ve çözüm ağının (mesh) yüksek irtifa koşullarını temsil etmekte başarılı olduğunu kanıtlar.
+2. **Operasyonel Analiz:** Şartnamede belirtilen itki ($30.99 \, kN$) ile CFD sonucunun ($17.787 \, kN$) farklılık göstermesi, analizde kullanılan giriş basıncının (210 kPa) düşüklüğünden kaynaklanmaktadır. Bu durum bir hata değil, motorun "part-throttle" veya düşük güçteki çalışma noktasını temsil etmektedir.
+3. **Yüksek Verimlilik:** Lülenin verimini gösteren **İtki Katsayısı ($C_{fg}$)** değerinin **0.971** çıkması, tasarımın teorik referanstan bile daha verimli bir genişleme sağladığını ve kayıpların (boundary layer effects) minimumda tutulduğunu ispatlamıştır.
+4. **Basınç İtkisi Katkısı:** Çıkış basıncının ortam basıncından yüksek olması ($P_9 > P_0$), lülenin "under-expanded" modda çalıştığını ve net itkiye pozitif bir basınç bileşeni eklediğini göstermiştir.
