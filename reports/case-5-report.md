@@ -42,7 +42,7 @@ $$
 **2. Tahmin Hatası (CFD vs Teorik):**
 
 $$
-\text{Hata}_{\text{tahmin}} = \left| \frac{|\dot{m}_{out}| - 52.054}{52.054} \right| \times 100 = \mathbf{\%0.60}
+\text{Hata}_{\text{tahmin}} = \left| \frac{|\dot{m}_{out}| - 18.857}{18.857} \right| \times 100 = \mathbf{\%0.60}
 $$
 
 
