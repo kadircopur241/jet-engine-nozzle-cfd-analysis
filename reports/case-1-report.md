@@ -114,10 +114,19 @@ $$
 * **Hesaplanan $C_{fg}$:** $0.968$
 * **Sonuç:** %0.2'lik mükemmel bir uyum yakalanmıştır.
 
-## 5. Sonuç
-Design Point (DP) koşullarında yapılan CFD analizi, teorik tasarım verileriyle yüksek tutarlılık göstermiştir.
-1. Kütlesel debi hatası **%0.79**,
-2. Deşarj katsayısı ($C_d$) hatası **%0.8**,
-3. İtki katsayısı ($C_{fg}$) hatası **%0.2** seviyesindedir.
+---
 
-Bu sonuçlar, tasarlanan lülenin ve oluşturulan sayısal modelin (Mesh + Setup) güvenilir olduğunu kanıtlamaktadır.
+## 5. Sonuç ve Genel Değerlendirme
+
+Case-1 (Standart Çalışma Koşulları) altında gerçekleştirilen CFD analizleri sonucunda aşağıdaki teknik çıkarımlar yapılmıştır:
+
+1. **Akış Karakteristiği:** 420 kPa giriş basıncı altında yapılan analizde, akışın lüle içerisinde beklenen genişlemeyi gerçekleştirdiği ve süreklilik denkleminin başarıyla sağlandığı görülmüştür. Giren ve çıkan kütlesel debi farkı binde bir mertebesindedir.
+
+2. **Kütlesel Debi Doğrulaması:** * **Teorik Hedef:** $37.714 \, kg/s$
+   * **CFD Sonucu:** $38.012 \, kg/s$
+   * **Hata:** %0.79 düzeyinde kalarak sayısal modelin güvenilirliğini kanıtlamıştır.
+
+3. **İtki ve Verimlilik Performansı:** * Elde edilen net itki ($27.24 \, kN$), $26.98 \, kN$ olan teorik hedefle yüksek uyum içindedir.
+   * Hesaplanan **0.9485** $C_d$ değeri ve **0.965** $C_{fg}$ değeri, tasarımın standart koşullarda %96'nın üzerinde bir itki verimliliği sunduğunu göstermektedir.
+
+4. **Genel Kanı:** Sayısal analiz sonuçları, geometrinin düşük hızlardaki (Mach 1.18 genişleme oranı) performansının teorik limitlere çok yakın olduğunu doğrulamaktadır.
