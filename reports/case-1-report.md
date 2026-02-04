@@ -80,9 +80,9 @@ Lülenin genel verimlilik göstergesi olan $C_{fg}$ değeri için kullanılan te
 
 **İdeal Kütlesel Debi ve Çıkış Hızı Formülleri:**
 
-$$                                                                                                                                                 
-\dot{m}_{ideal} = \frac{A_8 \cdot P_{t7}}{\sqrt{T_{t7}}} \sqrt{\frac{\gamma}{R} \left( \frac{2}{\gamma+1} \right)^{\frac{\gamma+1}{\gamma-1}}}    ,    V_{ideal} = \sqrt{2 \cdot C_p \cdot T_{t7} \left[ 1 - \left( \frac{P_0}{P_{t7}} \right)^{\frac{\gamma-1}{\gamma}} \right]}
-$$                                                                                                                                                 
+$$
+\dot{m}_{ideal} = \frac{A_8 \cdot P_{t7}}{\sqrt{T_{t7}}} \sqrt{\frac{\gamma}{R} \left( \frac{2}{\gamma+1} \right)^{\frac{\gamma+1}{\gamma-1}}} \quad , \quad V_{ideal} = \sqrt{2 \cdot C_p \cdot T_{t7} \left[ 1 - \left( \frac{P_0}{P_{t7}} \right)^{\frac{\gamma-1}{\gamma}} \right]}
+$$                                                                                                                                               
 
 
 * **İdeal Kütlesel Debi ($\dot{m}_{ideal}$):** $40.07 \, kg/s$
