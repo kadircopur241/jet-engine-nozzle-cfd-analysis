@@ -36,10 +36,6 @@ Süreklilik denkleminin sağlanması amacıyla kütle korunumu kontrol edilmiş 
 **Hata Analizi:**
 
 $$
-\text{Hata} = \left| \frac{\dot{m}_{CFD,çıkış} - \dot{m}_{Teorik}}{\dot{m}_{Teorik}} \right| \times 100
-$$
-
-$$
 \text{Hata} = \left| \frac{18.97797 - 18.857}{18.857} \right| \times 100 = \mathbf{\%0.641}
 $$
 
