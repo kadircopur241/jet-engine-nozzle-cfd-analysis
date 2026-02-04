@@ -91,3 +91,22 @@ $$
 **Değerlendirme:**
 * **İtki:** CFD sonucu şartname değerinden %1.91 daha yüksek çıkmıştır. Bu durum, çıkış basıncının ortam basıncından yüksek olması ($P_9 > P_0$) nedeniyle oluşan ek basınç itkisinden kaynaklanır.
 * **Verim:** Hesaplanan $0.961$ değeri, teorik $0.968$ referansına
+
+---
+
+## 5. Sonuç ve Genel Değerlendirme
+
+Case-3 (Yüksek İrtifa / Düşük Ortam Basıncı) koşullarında gerçekleştirilen CFD analizleri sonucunda aşağıdaki teknik çıkarımlar yapılmıştır:
+
+1. **Akış Rejimi:** Lüle, 400 kPa giriş ve 46.56 kPa ortam basıncı altında tam süpersonik rejime ulaşmış ve çıkışta **Mach 2.24** değeri gözlemlenmiştir. Bu durum, lülenin tasarlanan genişleme oranında ($1.703$) verimli çalıştığını kanıtlar.
+   
+2. **Kütlesel Debi Doğrulaması:** Teorik hedef olan $35.907 \, kg/s$ değeri ile CFD çıkış debisi ($36.12 \, kg/s$) arasındaki hata payı **%0.59** olarak gerçekleşmiştir. Bu düşük hata oranı, $C_p$ düzeltmesi ve mesh hassasiyetinin doğruluğunu teyit etmektedir.
+
+3. **İtki ve Verimlilik:** * Elde edilen net itki ($30.045 \, kN$), şartname değerinin ($29.48 \, kN$) yaklaşık **%1.91** üzerindedir. 
+   * İtki katsayısının **0.961** olarak hesaplanması, lülenin ideal (izentropik) duruma göre oldukça yüksek bir verimlilikle çalıştığını, kayıpların sınır tabaka ve viskoz etkilerle sınırlı kaldığını gösterir.
+
+4. **Kıyaslama Özeti:**
+   * **Hedef İtki:** $29.48 \, kN$ | **CFD İtki:** $30.045 \, kN$
+   * **Hedef $C_{fg}$:** $0.968$ | **CFD $C_{fg}$:** $0.961$
+
+Sonuç olarak; tasarlanan CD lüle geometrisi, Case-3 sınır koşulları altında kararlı bir süpersonik akış sağlamakta ve teorik performans kriterlerini **%99 mertebesinde** karşılamaktadır. Sayısal modelin (CFD) doğruluğu, literatürdeki teorik yaklaşımlarla tam uyum içerisindedir.
