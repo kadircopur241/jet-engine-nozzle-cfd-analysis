@@ -9,7 +9,7 @@ Lüle tasarımında akış ayrılmalarını önlemek ve optimum genişlemeyi sa�
 * **Giriş Alanı ($A_7$):** $0.19632 \, m^2$
 * **Boğaz Alanı ($A_8$):** $0.06745 \, m^2$
 * **Alan Oranı ($A_9/A_8$):** $1.178$
-* **Çıkış Alanı ($A_9$):** $0.07945 \, m^2$ (Hesaplanan)
+* **Çıkış Alanı ($A_9$):** $0.07945 \, m^2$
 * **Yakınsaklık Yarım Açısı ($\alpha$):** $30^\circ$
 * **Iraksaklık Yarım Açısı ($\theta$):** $12^\circ$
 
@@ -27,35 +27,30 @@ Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında ger�
 
 ## 4. Performans Analizi ve Doğrulama
 
-### 4.1. Kütlesel Debi Analizi ($\dot{m}$) ve Süreklilik Kontrolü
-Süreklilik denkleminin sağlanması amacıyla hem giriş-çıkış farkı (sayısal kararlılık) hem de teorik değerle olan sapma (model doğruluğu) kontrol edilmiştir.
+### 4.1. Kütlesel Debi Analizi ($\dot{m}$)
+Süreklilik denkleminin sağlanması ve kütle korunumunun kontrolü amacıyla giriş ve çıkış debileri incelenmiştir.
 
 * **Teorik (Hedef) Debi:** $37.714 \, kg/s$
-* **CFD Giriş Debisi ($\dot{m}_{in}$):** $38.014 \, kg/s$
-* **CFD Çıkış Debisi ($\dot{m}_{out}$):** $-38.012 \, kg/s$
+* **CFD Giriş Debisi:** $38.014 \, kg/s$
+* **CFD Çıkış Debisi:** $-38.012 \, kg/s$
 
-**1. Süreklilik Hatası (Giriş vs Çıkış):**
-$$
-\text{Hata}_{\text{süreklilik}} = \left| \frac{\dot{m}_{in} - |\dot{m}_{out}|}{\dot{m}_{in}} \right| \times 100 = \mathbf{\%0.005}
-$$
+**Hata Analizi:**
 
-**2. Tahmin Hatası (CFD vs Teorik):**
 $$
-\text{Hata}_{\text{tahmin}} = \left| \frac{|\dot{m}_{out}| - 37.714}{37.714} \right| \times 100 = \mathbf{\%0.79}
+\text{Hata} = \left| \frac{38.012 - 37.714}{37.714} \right| \times 100 = \mathbf{\%0.79}
 $$
 
 *%1'in altındaki bu sapma, çözüm ağının ve sınır koşullarının yüksek doğruluğunu göstermektedir.*
 
-### 4.2. Deşarj Katsayısı ($C_d$) Karşılaştırması
-Boğaz bölgesindeki gerçek akışın ideal izentropik akışa oranı üzerinden hesaplanan $C_d$ analizi aşağıdadır:
+### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
+Boğaz bölgesindeki akış verimliliğini belirlemek için bulunan kütlesel debinin ideal izentropik debiye oranı kullanılmıştır.
 
 $$
-C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}} = \frac{38.012}{40.07} = \mathbf{0.9485}
+C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}
 $$
 
-* **Teorik $C_d$ Referansı:** $0.941$
-* **CFD Hesaplanan $C_d$:** $0.9485$
-* **Fark:** $\%0.8$
+* **Teorik $C_d$ (Referans):** $0.941$
+* **CFD $C_d$ (Hesaplanan):** $38.012 / 40.07 = \mathbf{0.9485}$
 
 ---
 
@@ -67,11 +62,13 @@ Lüle çıkış yüzeyinden alınan verilerle toplam net itki hesaplanmıştır.
 * **Çıkış Alanı ($A_9$):** $0.07945 \, m^2$
 
 **İtki Formülü:**
+
 $$
 F_g = (\dot{m} \times V_9) + A_9 \times (P_9 - P_0)
 $$
 
 **CFD İtki Hesabı:**
+
 $$
 F_{g,CFD} = (38.012 \times 686.264) + 0.07945 \times (119938.5 - 101325) = \mathbf{27.56 \, kN}
 $$
@@ -79,12 +76,16 @@ $$
 ---
 
 ### 4.4. İtki ($F_g$) ve Verim ($C_{fg}$) Karşılaştırmalı Analiz
-Lülenin genel verimlilik göstergesi olan $C_{fg}$ değeri, CFD itkisinin ideal itkiye bölünmesiyle bulunmuştur. İdeal değerler için kullanılan termodinamik denklemler aşağıdadır:
+Lülenin genel verimlilik göstergesi olan $C_{fg}$ değeri için kullanılan termodinamik denklemler aşağıdadır:
 
 **İdeal Kütlesel Debi ve Çıkış Hızı Formülleri:**
 
 $$
-\dot{m}_{ideal} = \frac{A_8 \cdot P_{t7}}{\sqrt{T_{t7}}} \sqrt{\frac{\gamma}{R} \left( \frac{2}{\gamma+1} \right)^{\frac{\gamma+1}{\gamma-1}}} \quad , \quad V_{ideal} = \sqrt{2 \cdot C_p \cdot T_{t7} \left[ 1 - \left( \frac{P_0}{P_{t7}} \right)^{\frac{\gamma-1}{\gamma}} \right]}
+\dot{m}_{ideal} = \frac{A_8 \cdot P_{t7}}{\sqrt{T_{t7}}} \sqrt{\frac{\gamma}{R} \left( \frac{2}{\gamma+1} \right)^{\frac{\gamma+1}{\gamma-1}}}
+$$
+
+$$
+V_{ideal} = \sqrt{2 \cdot C_p \cdot T_{t7} \left[ 1 - \left( \frac{P_0}{P_{t7}} \right)^{\frac{\gamma-1}{\gamma}} \right]}
 $$
 
 * **İdeal Kütlesel Debi ($\dot{m}_{ideal}$):** $40.07 \, kg/s$
@@ -99,8 +100,9 @@ $$
 | **İtki Katsayısı ($C_{fg}$)** | $0.970$ | $0.968$ | %0.2 |
 
 **İtki Katsayısı ($C_{fg}$) Hesabı:**
+
 $$
-C_{fg,CFD} = \frac{F_{g,CFD}}{F_{g,ideal}} = \frac{27.56}{28.46} = \mathbf{0.968}
+C_{fg,CFD} = \frac{27.56}{28.46} = \mathbf{0.968}
 $$
 
 ---
@@ -109,7 +111,7 @@ $$
 
 Case-1 (DP) analizi sonucunda elde edilen veriler ışığında şu çıkarımlar yapılmıştır:
 
-1. **Sayısal Kararlılık:** Süreklilik hatasının **%0.005** gibi çok düşük bir seviyede kalması, CFD çözümünün sayısal olarak mükemmel şekilde yakınsadığını ispatlamıştır.
-2. **Kütlesel Debi Doğrulaması:** Analizden elde edilen kütlesel debinin hedef değerle olan **%0.79**'luk farkı, viskoz etkilerin ve sınır tabaka gelişiminin modelde doğru temsil edildiğini kanıtlar.
-3. **İtki Performansı:** Elde edilen **27.56 kN** itki kuvveti, tasarım hedefi olan 26.98 kN ile yüksek uyum içindedir. Aradaki küçük fark, lüle çıkışındaki basınç genişleme farkından kaynaklanmaktadır.
-4. **Verimlilik:** Hesaplanan **0.968** $C_{fg}$ değeri, lülenin standart tasarım koşullarında %96.8 verimle çalıştığını ve teorik beklentileri %99.8 oranında karşıladığını göstermektedir.
+1. **Sayısal Kararlılık:** Giren ve çıkan kütlesel debi farkı binde bir mertebesindedir. Bu durum, CFD çözümünün mükemmel şekilde yakınsadığını ispatlamıştır.
+2. **Kütlesel Debi Doğrulaması:** Analizden elde edilen kütlesel debinin hedef değerle olan **%0.79**'luk farkı, sayısal modelin güvenilirliğini kanıtlar.
+3. **İtki Performansı:** Elde edilen **27.56 kN** itki kuvveti, tasarım hedefi olan 26.98 kN ile yüksek uyum içindedir.
+4. **Verimlilik:** Hesaplanan **0.968** $C_{fg}$ değeri, tasarımın standart koşullarda %96.8 verimle çalıştığını ve teorik beklentileri tam tutarlılıkla karşıladığını göstermektedir.
