@@ -35,8 +35,9 @@ Farklı basınç ve geometrik parametreler altında yapılan analizlerin görsel
 | **Durum 1 (Case-1)** | [Görüntüle](./images/case-1/case-1-pressure.png) | [Görüntüle](./images/case-1/case-1-mach-number.png) | [Görüntüle](./images/case-1/case-1-mesh.png) |
 | **Durum 2 (Case-2)** | [Görüntüle](./images/case-2/case-2-pressure.png) | [Görüntüle](./images/case-2/case-2-mach-number.png) | [Görüntüle](./images/case-2/case-2-mesh.png) |
 | **Durum 3 (Case-3)** | [Görüntüle](./images/case-3/case-3-pressure.png) | [Görüntüle](./images/case-3/case-3-mach-number.png) | [Görüntüle](./images/case-3/case-3-mesh.png) |
-| **Durum 4 (case-4)** | [Görüntüle](./images/case-4/case-4-pressure.png) | [Görüntüle](./images/case-4/case-4-mach-number.png) | [Görüntüle](./images/case-4/case-4-mesh.png) |
-| **Durum 5 (case-5)** | [Görüntüle](./images/case-5/case-5-pressure.png) | [Görüntüle](./images/case-5/case-5-mach-number.png) | [Görüntüle](./images/case-5/case-5-mesh.png) |
+| **Durum 4 (Case-4)** | [Görüntüle](./images/case-4/case-4-pressure.png) | [Görüntüle](./images/case-4/case-4-mach-number.png) | [Görüntüle](./images/case-4/case-4-mesh.png) |
+| **Durum 5 (Case-5)** | [Görüntüle](./images/case-5/case-5-pressure.png) | [Görüntüle](./images/case-5/case-5-mach-number.png) | [Görüntüle](./images/case-5/case-5-mesh.png) |
+| **Durum 6 (Case-6)** | [Görüntüle](./images/case-6/case-6-pressure.png) | [Görüntüle](./images/case-6/case-6-mach-number.png) | [Görüntüle](./images/case-6/case-6-mesh.png) |
 
 ---
 
