@@ -21,7 +21,6 @@ Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında ger�
 | Giriş Toplam Sıcaklığı | $T_{t7}$ | 470.59 | K |
 | Ortam Basıncı | $P_0$ | 37,599 | Pa |
 | Ortam Sıcaklığı | $T_0$ | 238.62 | K |
-| Özgül Isı Kapasitesi | $C_p$ | 1022.897 | J/kgK |
 
 ---
 
@@ -41,6 +40,8 @@ $$\text{Hata}_{\text{süreklilik}} = \left| \frac{\dot{m}_{in} - |\dot{m}_{out}|
 **2. Tahmin Hata Oranı / Fark (CFD vs Teorik):**
 
 $$\text{Hata}_{\text{tahmin}} = \left| \frac{|\dot{m}_{out}| - 24.503}{24.503} \right| \times 100 = \%0.37$$
+
+*%1'in altındaki bu hata oranı, çözümün başarıyla yakınsadığını ve kütle korunumunun sağlandığını gösterir.*
 
 ### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
 Boğaz bölgesindeki akış verimliliğini belirlemek için analizden elde edilen debinin ideal debiye oranı kullanılmıştır.
@@ -70,9 +71,9 @@ $$F_{g,CFD} = (24.41219 \times 517.54) + 0.1065 \times (44592.1 - 37599) = 13.38
 
 **İdeal Kütlesel Debi ve Çıkış Hızı Formülleri:**
 
-$$\dot{m}_{ideal} = \frac{P_{t7} A_8}{\sqrt{T_{t7}}} \sqrt{\frac{\gamma}{R} \left( \frac{2}{\gamma+1} \right)^{\frac{\gamma+1}{\gamma-1}}}$$
-
-$$V_{ideal} = \sqrt{2 \cdot C_p \cdot T_{t7} \left[ 1 - \left( \frac{P_0}{P_{t7}} \right)^{\frac{\gamma-1}{\gamma}} \right]}$$
+$$
+\dot{m}_{ideal} = \frac{A_8 \cdot P_{t7}}{\sqrt{T_{t7}}} \sqrt{\frac{\gamma}{R} \left( \frac{2}{\gamma+1} \right)^{\frac{\gamma+1}{\gamma-1}}} \quad , \quad V_{ideal} = \sqrt{2 \cdot C_p \cdot T_{t7} \left[ 1 - \left( \frac{P_0}{P_{t7}} \right)^{\frac{\gamma-1}{\gamma}} \right]}
+$$
 
 * **İdeal Kütlesel Debi ($\dot{m}_{ideal}$):** $25.6178 \, kg/s$
 * **İdeal Çıkış Hızı ($V_{ideal}$):** $551.68 \, m/s$
