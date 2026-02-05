@@ -1,7 +1,7 @@
 # Case-4: High Supersonic Expansion & Performance Validation
 
 ## 1. Giriş ve Amaç
-Bu rapor, lüle tasarımının **Case-4 (Durum 4)** koşullarındaki sayısal analiz sonuçlarını içermektedir. Bu aşamada, yüksek basınç farkı altında lülenin süpersonik deşarj kapasitesi ve elde edilen itki kuvvetinin teorik değerlerle doğrulanması amaçlanmıştır.
+Bu rapor, lüle tasarımının **Durum 4 (Case-4)** koşullarındaki sayısal analiz sonuçlarını içermektedir. Bu aşamada, yüksek basınç farkı altında lülenin süpersonik deşarj kapasitesi ve elde edilen itki kuvvetinin teorik değerlerle doğrulanması amaçlanmıştır.
 
 ## 2. Geometrik Parametreler
 Tasarımda kullanılan lüle geometrisi, yüksek genişleme oranına göre optimize edilmiştir:
