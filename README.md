@@ -38,6 +38,7 @@ Farklı basınç ve geometrik parametreler altında yapılan analizlerin görsel
 | **Durum 4 (Case-4)** | [Görüntüle](./images/case-4/case-4-pressure.png) | [Görüntüle](./images/case-4/case-4-mach-number.png) | [Görüntüle](./images/case-4/case-4-mesh.png) |
 | **Durum 5 (Case-5)** | [Görüntüle](./images/case-5/case-5-pressure.png) | [Görüntüle](./images/case-5/case-5-mach-number.png) | [Görüntüle](./images/case-5/case-5-mesh.png) |
 | **Durum 6 (Case-6)** | [Görüntüle](./images/case-6/case-6-pressure.png) | [Görüntüle](./images/case-6/case-6-mach-number.png) | [Görüntüle](./images/case-6/case-6-mesh.png) |
+| **Durum 7 (Case-7)** | [Görüntüle](./images/case-7/case-7-pressure.png) | [Görüntüle](./images/case-7/case-7-mach-number.png) | [Görüntüle](./images/case-7/case-7-mesh.png) |
 
 ---
 
