@@ -45,6 +45,8 @@ $$
 \text{Hata}_{\text{tahmin}} = \left| \frac{|\dot{m}_{out}| - 14.430}{14.430} \right| \times 100 = \mathbf{\%0.029}
 $$
 
+*%1'in altındaki bu hata oranı, çözümün başarıyla yakınsadığını ve kütle korunumunun sağlandığını gösterir.*
+
 ### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
 Boğaz bölgesindeki akış verimliliğini belirlemek için analizden elde edilen debinin ideal debiye oranı kullanılmıştır.
 
