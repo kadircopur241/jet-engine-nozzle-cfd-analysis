@@ -33,19 +33,17 @@ Süreklilik denkleminin sağlanması amacıyla kütle korunumu kontrol edilmiş 
 * **CFD Giriş Debisi:** $14.43458 \, kg/s$
 * **CFD Çıkış Debisi:** $-14.43422 \, kg/s$
 
-**1. Süreklilik Hatası (Giriş vs Çıkış):**
+**1. Süreklilik Hata Oranı / Fark (Giriş vs Çıkış):**
 
 $$
 \text{Hata}_{\text{süreklilik}} = \left| \frac{\dot{m}_{in} - |\dot{m}_{out}|}{\dot{m}_{in}} \right| \times 100 = \mathbf{\%0.0025}
 $$
 
-**2. Tahmin Hatası (CFD vs Teorik):**
+**2. Tahmin Hata Oranı / Fark (CFD vs Teorik):**
 
 $$
 \text{Hata}_{\text{tahmin}} = \left| \frac{|\dot{m}_{out}| - 14.430}{14.430} \right| \times 100 = \mathbf{\%0.029}
 $$
-
-*%1'in altındaki bu hata oranı, çözümün başarıyla yakınsadığını ve kütle korunumunun sağlandığını gösterir.*
 
 ### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
 Boğaz bölgesindeki akış verimliliğini belirlemek için analizden elde edilen debinin ideal debiye oranı kullanılmıştır.
@@ -55,7 +53,7 @@ C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}
 $$
 
 * **Teorik $C_d$ (Referans):** $0.941$
-* **CFD $C_d$ (Hesaplanan):** **0.955995**
+* **CFD $C_d$ (Hesaplanan):** **0.9471**
 
 ### 4.3. İtki Kuvveti ($F_g$) Analizi
 Lüle çıkış yüzeyinden alınan verilerle toplam net itki hesaplanmıştır.
@@ -102,7 +100,7 @@ $$
 
 Case-6 analizinde lüle, süpersonik rejime tam uyum sağlamış ve tasarlanan geometrik limitler dahilinde yüksek performans sergilemiştir. Yapılan analizler sonucunda şu çıkarımlar yapılmıştır:
 
-1. **Sayısal Doğrulama:** Kütlesel debi tahmin hatasının **%0.029** gibi oldukça düşük bir seviyede kalması, modelin ve mesh yapısının çözüm hassasiyetini kanıtlamıştır.
+1. **Sayısal Doğrulama:** Kütlesel debi tahmin hata oranının **%0.029** gibi oldukça düşük bir seviyede kalması, modelin ve mesh yapısının çözüm hassasiyetini kanıtlamıştır.
 2. **Operasyonel Başarı:** Teorik itki değeri ($13.35 \, kN$) ile CFD sonucu ($13.701 \, kN$) arasındaki farkın sadece **%2.63** olması, simülasyonun fiziksel gerçekliği başarıyla yansıttığını gösterir.
-3. **Akış Verimliliği:** Hesaplanan deşarj katsayısının ($C_d = 0.956$) teorik referans değerine (0.941) olan yakınlığı, boğaz bölgesindeki daralma ve kayıpların kontrol altında olduğunu ispatlamıştır.
+3. **Akış Verimliliği:** Hesaplanan deşarj katsayısının ($C_d = 0.9471$) teorik referans değerine (0.941) olan yüksek yakınlığı, boğaz bölgesindeki daralma ve kayıpların son derece düşük olduğunu ispatlamıştır.
 4. **Basınç Dağılımı:** Lülenin çıkış basıncı ($15.4 \, kPa$), ortam basıncından ($7.1 \, kPa$) yüksek kalarak "under-expanded" modda çalışmış ve bu durum net itkiye pozitif bir basınç bileşeni ekleyerek performansı desteklemiştir.
