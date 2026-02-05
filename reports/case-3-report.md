@@ -57,7 +57,7 @@ $$
 
 * **Teorik $C_d$ Referansı:** $0.940$
 * **CFD Hesaplanan $C_d$:** $0.9465$
-* **Fark:** $\%0.69$
+* **Fark:** %0.69
 
 ---
 
