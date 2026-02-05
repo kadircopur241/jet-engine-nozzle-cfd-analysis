@@ -12,7 +12,8 @@ Tasarımda kullanılan lüle geometrisi, yüksek genişleme oranına ($A_9/A_8 =
 * **Yakınsaklık Yarım Açısı ($\alpha$):** $30^\circ$
 * **Iraksaklık Yarım Açısı ($\theta$):** $12^\circ$
 
-## 3. Sınır Koşulları (Boundary Conditions)Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında gerçekleştirilmiştir. Akışkan olarak "İdeal Gaz" (Hava) seçilmiş olup, özgül ısı kapasitesi ($C_p$) sıcaklığın bir fonksiyonu olarak tanımlanmış ve analiz sırasında her hücredeki yerel sıcaklık değerine göre dinamik olarak hesaplanmıştır.
+## 3. Sınır Koşulları (Boundary Conditions)
+Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında gerçekleştirilmiştir. Akışkan olarak "İdeal Gaz" (Hava) seçilmiş olup, özgül ısı kapasitesi ($C_p$) sıcaklığın bir fonksiyonu olarak tanımlanmış ve analiz sırasında her hücredeki yerel sıcaklık değerine göre dinamik olarak hesaplanmıştır.
 | Parametre | Sembol | Değer | Birim |
 | :--- | :--- | :--- | :--- |
 | Giriş Toplam Basıncı | $P_{t7}$ | 210,000 | Pa |
