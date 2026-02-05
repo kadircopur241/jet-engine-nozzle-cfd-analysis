@@ -45,8 +45,6 @@ $$
 \text{Hata}_{\text{tahmin}} = \left| \frac{|\dot{m}_{out}| - 14.430}{14.430} \right| \times 100 = \mathbf{\%0.029}
 $$
 
-*%1'in altındaki bu hata oranı, çözümün başarıyla yakınsadığını ve kütle korunumunun sağlandığını gösterir.*
-
 ### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
 Boğaz bölgesindeki akış verimliliğini belirlemek için analizden elde edilen debinin ideal debiye oranı kullanılmıştır.
 
@@ -87,14 +85,14 @@ $$
 
 * **İdeal Kütlesel Debi ($\dot{m}_{ideal}$):** $15.239 \, kg/s$
 * **İdeal Çıkış Hızı ($V_{ideal}$):** $942.292 \, m/s$
-* **İdeal İtki ($F_{g,ideal}$):** $14.360 \, kN$ ($15.239 \times 942.292$)
+* **İdeal İtki ($F_{g,ideal}$):** **$14.360 \, kN$**
 
 **Karşılaştırma Tablosu:**
 
 | Parametre | Teorik / Şartname | CFD Sonucu | Hata / Fark |
 | :--- | :--- | :--- | :--- |
 | **İtki Kuvveti ($F_g$)** | $13.35 \, kN$ | $13.701 \, kN$ | %2.63 |
-| **İtki Katsayısı ($C_{fg}$)** | $0.956$ | $0.954$ | %0.21 |
+| **İtki Katsayısı ($C_{fg}$)** | $0.956$ | **0.954** | %0.21 |
 
 ---
 
