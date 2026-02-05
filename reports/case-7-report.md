@@ -35,21 +35,17 @@ Süreklilik denkleminin sağlanması amacıyla kütle korunumu kontrol edilmiş 
 * **CFD Çıkış Debisi:** $-24.41219 \, kg/s$
 
 **1. Süreklilik Hata Oranı / Fark (Giriş vs Çıkış):**
-$$
-\text{Hata}_{\text{süreklilik}} = \left| \frac{24.41262 - 24.41219}{24.41262} \right| \times 100 = \mathbf{\%0.0018}
-$$
+
+$$\text{Hata}_{\text{süreklilik}} = \left| \frac{\dot{m}_{in} - |\dot{m}_{out}|}{\dot{m}_{in}} \right| \times 100 = \%0.0018$$
 
 **2. Tahmin Hata Oranı / Fark (CFD vs Teorik):**
-$$
-\text{Hata}_{\text{tahmin}} = \left| \frac{24.41219 - 24.503}{24.503} \right| \times 100 = \mathbf{\%0.37}
-$$
+
+$$\text{Hata}_{\text{tahmin}} = \left| \frac{|\dot{m}_{out}| - 24.503}{24.503} \right| \times 100 = \%0.37$$
 
 ### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
 Boğaz bölgesindeki akış verimliliğini belirlemek için analizden elde edilen debinin ideal debiye oranı kullanılmıştır.
 
-$$
-C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}
-$$
+$$C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}$$
 
 * **Teorik $C_d$ (Referans):** $0.956$
 * **CFD $C_d$ (Hesaplanan):** **0.9529**
@@ -62,28 +58,28 @@ Lüle çıkış yüzeyinden alınan verilerle toplam net itki hesaplanmıştır.
 * **Çıkış Alanı ($A_9$):** $0.1065 \, m^2$
 
 **İtki Formülü:**
-$$
-F_g = (\dot{m} \times V_9) + A_9 \times (P_9 - P_0)
-$$
+
+$$F_g = (\dot{m} \times V_9) + A_9 \times (P_9 - P_0)$$
 
 **CFD İtki Hesabı:**
-$$
-F_{g,CFD} = (24.41219 \times 517.54) + 0.1065 \times (44592.1 - 37599) = \mathbf{13.38 \, kN}
-$$
+
+$$F_{g,CFD} = (24.41219 \times 517.54) + 0.1065 \times (44592.1 - 37599) = 13.38 \, kN$$
 
 ### 4.4. İtki ($F_g$) ve Verim ($C_{fg}$) Karşılaştırmalı Analiz
 İdeal değerler için kullanılan isentropik termodinamik denklemler aşağıdadır:
 
 **İdeal Kütlesel Debi ve Çıkış Hızı Formülleri:**
-$$
-\dot{m}_{ideal} = \frac{P_{t7} A_8}{\sqrt{T_{t7}}} \sqrt{\frac{\gamma}{R} \left( \frac{2}{\gamma+1} \right)^{\frac{\gamma+1}{\gamma-1}}} \quad , \quad V_{ideal} = \sqrt{2 \cdot C_p \cdot T_{t7} \left[ 1 - \left( \frac{P_0}{P_{t7}} \right)^{\frac{\gamma-1}{\gamma}} \right]}
-$$
+
+$$\dot{m}_{ideal} = \frac{P_{t7} A_8}{\sqrt{T_{t7}}} \sqrt{\frac{\gamma}{R} \left( \frac{2}{\gamma+1} \right)^{\frac{\gamma+1}{\gamma-1}}}$$
+
+$$V_{ideal} = \sqrt{2 \cdot C_p \cdot T_{t7} \left[ 1 - \left( \frac{P_0}{P_{t7}} \right)^{\frac{\gamma-1}{\gamma}} \right]}$$
 
 * **İdeal Kütlesel Debi ($\dot{m}_{ideal}$):** $25.6178 \, kg/s$
 * **İdeal Çıkış Hızı ($V_{ideal}$):** $551.68 \, m/s$
 * **İdeal İtki ($F_{g,ideal}$):** $14.132 \, kN$
 
 **Karşılaştırma Tablosu:**
+
 | Parametre | Teorik / Şartname | CFD Sonucu | Hata / Fark |
 | :--- | :--- | :--- | :--- |
 | **İtki Kuvveti ($F_g$)** | $13.22 \, kN$ | $13.38 \, kN$ | %1.21 |
@@ -98,4 +94,5 @@ Case-7 analizinde lüle, transonik geçişi başarıyla tamamlamış ve süperso
 1. **Sayısal Doğrulama:** Kütlesel debi tahmin hata oranının **%0.37** gibi çok düşük bir seviyede kalması, çözümün yüksek hassasiyetle yakınsadığını kanıtlamıştır.
 2. **Katsayı Uyumu:** Hesaplanan akış katsayısının ($C_d = 0.9529$) teorik referansla (0.956) tam uyum göstermesi, boğaz bölgesindeki daralma etkilerinin doğru modellendiğini ispatlar.
 3. **İtki Performansı:** Hesaplanan itki (13.38 kN) ile teorik itki (13.22 kN) arasındaki farkın minimal olması, lülenin momentum üretim kapasitesinin beklentileri karşıladığını gösterir.
-4. **Görsel Analiz:** Mach sayısı konturları, akışın boğazda sonik hıza ulaştığını; basınç konturları ise çıkışta ortam basıncıyla olan farkın ($P_9 > P_0$) itkiye pozitif katkı sağladığını doğrulamaktadır.
+4. **Görsel Analiz:** Mach sayısı konturları, akışun boğazda sonik hıza ulaştığını; basınç konturları ise çıkışta ortam basıncıyla olan farkın ($P_9 > P_0$) itkiye pozitif katkı sağladığını doğrulamaktadır.
+   
