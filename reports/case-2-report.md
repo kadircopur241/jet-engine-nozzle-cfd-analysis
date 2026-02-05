@@ -1,7 +1,7 @@
 # Case-2: Analysis & Validation Report ($M_{N0}=1.00$)
 
 ## 1. Giriş ve Amaç
-Bu rapor, jet motoru nozzle tasarımının **Case-2 (Durum 2)** koşullarındaki sayısal analiz sonuçlarını içermektedir. Bu analiz setinde, lüle giriş basıncı artırılarak ($580 \, kPa$) performans karakteristiklerinin değişimi ve nozzle'ın yüksek basınç altındaki davranışları incelenmiştir.
+Bu rapor, jet motoru nozzle tasarımının **Durum 2 (Case-2)** koşullarındaki sayısal analiz sonuçlarını içermektedir. Bu analiz setinde, lüle giriş basıncı artırılarak ($580 \, kPa$) performans karakteristiklerinin değişimi ve nozzle'ın yüksek basınç altındaki davranışları incelenmiştir.
 
 ## 2. Geometrik Parametreler
 Case-2 analizinde kullanılan lüle geometrisi, tasarım noktası (DP) ile aynı olup, genişleme oranları sabittir:
