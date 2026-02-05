@@ -1,19 +1,19 @@
 # Case-6: Supersonic Flow & Altitude Performance Analysis
 
 ## 1. Giriş ve Amaç
-Bu rapor, jet motoru nozzle tasarımının **Durum 6 (Case-6)** koşullarındaki sayısal analiz sonuçlarını içermektedir. Bu aşamada, lülenin belirlenen giriş basıncı ($160,000 \, Pa$) ve sıcaklığı ($788.24 \, K$) altındaki performansı ve süpersonik genişleme verimi teorik verilerle kıyaslanarak incelenmiştir.
+[cite_start]Bu rapor, jet motoru nozzle tasarımının **Durum 6 (Case-6)** koşullarındaki sayısal analiz sonuçlarını içermektedir[cite: 1]. [cite_start]Bu aşamada, lülenin belirlenen giriş basıncı ($160,000 \, Pa$) ve sıcaklığı ($788.24 \, K$) altındaki performansı ve süpersonik genişleme verimi teorik verilerle kıyaslanarak incelenmiştir[cite: 1].
 
 ## 2. Geometrik Parametreler
-Tasarımda kullanılan lüle geometrisi, yüksek genişleme oranına ($A_9/A_8 = 2.0$) göre optimize edilmiştir:
+[cite_start]Tasarımda kullanılan lüle geometrisi, yüksek genişleme oranına ($A_9/A_8 = 2.0$) göre optimize edilmiştir[cite: 1]:
 
-* **Giriş Alanı ($A_7$):** $0.19635 \, m^2$
-* **Boğaz Alanı ($A_8$):** $0.06683 \, m^2$
-* **Alan Oranı ($A_9 / A_8$):** $2.000$
-* **Yakınsaklık Yarım Açısı ($\alpha$):** $30^\circ$
-* **Iraksaklık Yarım Açısı ($\theta$):** $12^\circ$
+* [cite_start]**Giriş Alanı ($A_7$):** $0.19635 \, m^2$ [cite: 1]
+* [cite_start]**Boğaz Alanı ($A_8$):** $0.06683 \, m^2$ [cite: 1]
+* [cite_start]**Alan Oranı ($A_9 / A_8$):** $2.000$ [cite: 1]
+* [cite_start]**Yakınsaklık Yarım Açısı ($\alpha$):** $30^\circ$ [cite: 3]
+* [cite_start]**Iraksaklık Yarım Açısı ($\theta$):** $12^\circ$ [cite: 3]
 
 ## 3. Sınır Koşulları (Boundary Conditions)
-Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında gerçekleştirilmiştir. Akışkan olarak "İdeal Gaz" seçilmiş ve özgül ısı kapasitesi ($C_p$) $1084.2 \, J/kgK$ olarak tanımlanmıştır.
+[cite_start]Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında gerçekleştirilmiştir[cite: 2]. [cite_start]Akışkan olarak "İdeal Gaz" seçilmiş ve özgül ısı kapasitesi ($C_p$) $1084.2 \, J/kgK$ olarak tanımlanmıştır[cite: 1].
 
 | Parametre | Sembol | Değer | Birim |
 | :--- | :--- | :--- | :--- |
@@ -27,40 +27,40 @@ Analiz, ANSYS Fluent içerisinde aşağıdaki işletme koşulları altında ger�
 ## 4. Performans Analizi ve Doğrulama
 
 ### 4.1. Kütlesel Debi Analizi ($\dot{m}$)
-Süreklilik denkleminin sağlanması amacıyla kütle korunumu kontrol edilmiş ve teorik değerle kıyaslanmıştır.
+[cite_start]Süreklilik denkleminin sağlanması amacıyla kütle korunumu kontrol edilmiş ve teorik değerle kıyaslanmıştır[cite: 4, 5].
 
-* **Teorik (Hedef) Debi:** $14.430 \, kg/s$
-* **CFD Giriş Debisi:** $14.43458 \, kg/s$
-* **CFD Çıkış Debisi:** $-14.43422 \, kg/s$
+* [cite_start]**Teorik (Hedef) Debi:** $14.430 \, kg/s$ [cite: 4]
+* [cite_start]**CFD Giriş Debisi:** $14.43458 \, kg/s$ [cite: 4]
+* [cite_start]**CFD Çıkış Debisi:** $-14.43422 \, kg/s$ [cite: 4]
 
-**1. Süreklilik Hatası (Giriş vs Çıkış):**
+**1. Süreklilik Hata Oranı / Fark (Giriş vs Çıkış):**
 
 $$
 \text{Hata}_{\text{süreklilik}} = \left| \frac{\dot{m}_{in} - |\dot{m}_{out}|}{\dot{m}_{in}} \right| \times 100 = \mathbf{\%0.0025}
 $$
 
-**2. Tahmin Hatası (CFD vs Teorik):**
+**2. Tahmin Hata Oranı / Fark (CFD vs Teorik):**
 
 $$
 \text{Hata}_{\text{tahmin}} = \left| \frac{|\dot{m}_{out}| - 14.430}{14.430} \right| \times 100 = \mathbf{\%0.029}
 $$
 
 ### 4.2. Deşarj Katsayısı ($C_d$) Hesabı
-Boğaz bölgesindeki akış verimliliğini belirlemek için analizden elde edilen debinin ideal debiye oranı kullanılmıştır.
+[cite_start]Boğaz bölgesindeki akış verimliliğini belirlemek için analizden elde edilen debinin ideal debiye oranı kullanılmıştır[cite: 7].
 
 $$
 C_d = \frac{\dot{m}_{bulunan}}{\dot{m}_{ideal}}
 $$
 
-* **Teorik $C_d$ (Referans):** $0.941$
-* **CFD $C_d$ (Hesaplanan):** **0.955995**
+* [cite_start]**Teorik $C_d$ (Referans):** $0.941$ [cite: 5]
+* [cite_start]**CFD $C_d$ (Hesaplanan):** **0.955995** [cite: 7]
 
 ### 4.3. İtki Kuvveti ($F_g$) Analizi
-Lüle çıkış yüzeyinden alınan verilerle toplam net itki hesaplanmıştır.
+[cite_start]Lüle çıkış yüzeyinden alınan verilerle toplam net itki hesaplanmıştır[cite: 9, 10].
 
-* **Çıkış Hızı ($V_9$):** $872.968 \, m/s$
-* **Çıkış Mutlak Basıncı ($P_9$):** $15,405.2 \, Pa$
-* **Çıkış Alanı ($A_9$):** $0.13366 \, m^2$
+* [cite_start]**Çıkış Hızı ($V_9$):** $872.968 \, m/s$ [cite: 9]
+* [cite_start]**Çıkış Mutlak Basıncı ($P_9$):** $15,405.2 \, Pa$ [cite: 9]
+* [cite_start]**Çıkış Alanı ($A_9$):** $0.13366 \, m^2$ [cite: 1, 9]
 
 **İtki Formülü:**
 
@@ -75,7 +75,7 @@ F_{g,CFD} = (14.43422 \times 872.968) + 0.13366 \times (15405.2 - 7171) = \mathb
 $$
 
 ### 4.4. İtki ($F_g$) ve Verim ($C_{fg}$) Karşılaştırmalı Analiz
-Lülenin genel verimlilik göstergesi olan $C_{fg}$ değeri için kullanılan isentropik denklemler aşağıdadır:
+[cite_start]Lülenin genel verimlilik göstergesi olan $C_{fg}$ değeri için kullanılan isentropik denklemler aşağıdadır[cite: 11, 12, 13]:
 
 **İdeal Kütlesel Debi ve Çıkış Hızı Formülleri:**
 
@@ -83,9 +83,9 @@ $$
 \dot{m}_{ideal} = \frac{A_8 \cdot P_{t7}}{\sqrt{T_{t7}}} \sqrt{\frac{\gamma}{R} \left( \frac{2}{\gamma+1} \right)^{\frac{\gamma+1}{\gamma-1}}} \quad , \quad V_{ideal} = \sqrt{2 \cdot C_p \cdot T_{t7} \left[ 1 - \left( \frac{P_0}{P_{t7}} \right)^{\frac{\gamma-1}{\gamma}} \right]}
 $$
 
-* **İdeal Kütlesel Debi ($\dot{m}_{ideal}$):** $15.239 \, kg/s$
-* **İdeal Çıkış Hızı ($V_{ideal}$):** $942.292 \, m/s$
-* **İdeal İtki ($F_{g,ideal}$):** $14.360 \, kN$ ($15.239 \times 942.292$)
+* [cite_start]**İdeal Kütlesel Debi ($\dot{m}_{ideal}$):** $15.239 \, kg/s$ [cite: 11]
+* [cite_start]**İdeal Çıkış Hızı ($V_{ideal}$):** $942.292 \, m/s$ [cite: 12]
+* [cite_start]**İdeal İtki ($F_{g,ideal}$):** $18.31836 \, kN$ [cite: 13]
 
 **Karşılaştırma Tablosu:**
 
@@ -100,7 +100,7 @@ $$
 
 Case-6 analizinde lüle, süpersonik rejime tam uyum sağlamış ve tasarlanan geometrik limitler dahilinde yüksek performans sergilemiştir. Yapılan analizler sonucunda şu çıkarımlar yapılmıştır:
 
-1. **Sayısal Doğrulama:** Kütlesel debi tahmin hatasının **%0.029** gibi oldukça düşük bir seviyede kalması, modelin ve mesh yapısının çözüm hassasiyetini kanıtlamıştır.
+1. **Sayısal Doğrulama:** Kütlesel debi tahmin hata oranının **%0.029** gibi oldukça düşük bir seviyede kalması, modelin ve mesh yapısının çözüm hassasiyetini kanıtlamıştır.
 2. **Operasyonel Başarı:** Teorik itki değeri ($13.35 \, kN$) ile CFD sonucu ($13.701 \, kN$) arasındaki farkın sadece **%2.63** olması, simülasyonun fiziksel gerçekliği başarıyla yansıttığını gösterir.
 3. **Akış Verimliliği:** Hesaplanan deşarj katsayısının ($C_d = 0.956$) teorik referans değerine (0.941) olan yakınlığı, boğaz bölgesindeki daralma ve kayıpların kontrol altında olduğunu ispatlamıştır.
 4. **Basınç Dağılımı:** Lülenin çıkış basıncı ($15.4 \, kPa$), ortam basıncından ($7.1 \, kPa$) yüksek kalarak "under-expanded" modda çalışmış ve bu durum net itkiye pozitif bir basınç bileşeni ekleyerek performansı desteklemiştir.
