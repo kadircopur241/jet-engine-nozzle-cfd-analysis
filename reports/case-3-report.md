@@ -1,7 +1,7 @@
 # Case-3: High Pressure & Supersonic Expansion Analysis
 
 ## 1. Giriş ve Amaç
-Bu rapor, jet motoru nozzle tasarımının **Case-3 (Durum 3)** koşullarındaki sayısal analiz sonuçlarını içermektedir. Bu aşamada, lülenin yüksek basınç ve düşük ortam basıncı altındaki genişleme (expansion) karakteristiği ve süpersonik akış verimi incelenmiştir.
+Bu rapor, jet motoru nozzle tasarımının **Durum 3 (Case-3)** koşullarındaki sayısal analiz sonuçlarını içermektedir. Bu aşamada, lülenin yüksek basınç ve düşük ortam basıncı altındaki genişleme (expansion) karakteristiği ve süpersonik akış verimi incelenmiştir.
 
 ## 2. Geometrik Parametreler
 Tasarımda kullanılan lüle geometrisi, yüksek genişleme oranına göre optimize edilmiştir:
